@@ -1,0 +1,76 @@
+﻿.complex-title {
+    font-size:16px;
+    margin-top:-3px;
+}
+.nopadding {
+    padding-left:0px;
+    padding-right:0px;
+}
+.nopaddingleft {
+    padding-left:0px;
+}
+.nopaddingright {
+    padding-right:0px;
+}
+.custom-input {
+    width: 175px;
+    line-height: 16px;
+    z-index: 3;
+}
+.custom-input-mini-unit {
+    width:85px;
+    margin-left:7px;
+}
+.custom-input-mini-sellable {
+    width: 92px;
+    margin-left: 0px;
+}
+.custom-input-mini-floor {
+    width: 85px;
+    margin-left: 16px;
+}
+.manage-building-title {
+    padding-left:15px;
+}
+.manage-plan {
+    height:334px;
+}
+.auto-complete {
+    width:100%;
+    margin-left:13px;
+}
+.sub-content {
+    margin-left:18px;
+    margin-top:10px;
+}
+.texbox-complex {
+    width:167px;
+}
+.texbox-complex-name {
+    width:172px;
+}
+.complex-icon {
+    float: right;
+    /*margin-top: 5px;*/
+    margin-top: -33px;
+    margin-right: -29px;
+}
+.building-textbox {
+    width:110px;
+}
+.complex-icon-floor {
+    float: right;
+    /*margin-top: 5px;*/
+    margin-top: -33px;
+    margin-right: -21px;
+}
+.complex-icon-unit {
+    float: right;
+    /*margin-top: 5px;*/
+    margin-top:-33px;
+    margin-right: -13px;
+}
+.add-btn {
+    margin-bottom:10px;
+    width:110px;
+}

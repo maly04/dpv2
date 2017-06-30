@@ -1,0 +1,27 @@
+﻿<div class="row-fluid">
+    <div class="col-lg-12 col-xs-12">
+
+        <div ng-repeat="item in devices track by $index" ng-if="$index % 3 == 0" class="row">
+            <div class="col-lg-4">
+                <a ui-sref="app.presentation.controls({deviceId:devices[$index].id})">
+                    <img src="https://placeholdit.imgix.net/~text?txtsize=24&txt=355×243&w=255&h=243" class="img-thumbnail" alt="Alternate Text" />
+                    <div>{{devices[$index].id}}</div>
+                </a>
+            </div>
+            <div class="col-lg-4" ng-if="devices.length > ($index + 1)">
+                <a ui-sref="app.presentation.controls({deviceId:devices[$index + 1].id})">
+                    <img src="https://placeholdit.imgix.net/~text?txtsize=24&txt=355×243&w=255&h=243" class="img-thumbnail" alt="Alternate Text" />
+                    <div>{{devices[$index + 1].id}}</div>
+                </a>
+            </div>
+            <div class="col-lg-4" ng-if="devices.length > ($index + 2)">
+                <a ui-sref="app.presentation.controls({deviceId:devices[$index + 2].id})">
+                    <img src="https://placeholdit.imgix.net/~text?txtsize=24&txt=355×243&w=255&h=243" class="img-thumbnail" alt="Alternate Text" />
+                    <div>{{devices[$index + 2].id}}</div>
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+</div>

@@ -1,0 +1,177 @@
+﻿<h1 class="page-title visible-lg">Manage Complex</h1>
+<div class="row">
+    <div class="widget">
+      <div class="col-lg-1 col-md-1 nopadding">
+          <h2 class="complex-title">Complex List</h2>
+
+          <div class="textbox-group">
+              <dp-entity-property-textbox ng-repeat="entity in complexes" dp-entity="Complex" dp-entity-property="Name" dp-entity-id="{{entity.ID}}"></dp-entity-property-textbox>
+             
+              <input type="text" name="complext3" class="custom-input" value="new complex short name" />
+              <input type="text" name="complext3" class="custom-input" value="new complex shortcode" />
+              <div class="inner-addon right-addon">
+                  <!--<input type="file" class="custom-input" />-->
+                  <input type="text" name="complext2" class="custom-input" value="center pin" />
+                  <a href="#" class="complex-icon"><i class="glyphicon glyphicon-plus-sign"></i></a>
+              </div>
+              <div class="inner-addon right-addon">
+                  <input type="text" name="complext2" class="custom-input" value="import complex poly shape" />
+                  <a href="#" class="complex-icon"><i class="glyphicon glyphicon-plus-sign"></i></a>
+              </div>
+              <div class="inner-addon right-addon">
+                  <input type="text" name="complext2" class="custom-input" value="poly angle" />
+                  <a href="#" class="complex-icon"><i class="glyphicon glyphicon-plus-sign"></i></a>
+              </div>
+              <div class="inner-addon right-addon">
+                  <input type="text" name="complext2" class="custom-input" value="poly scale" />
+                  <a href="#" class="complex-icon"><i class="glyphicon glyphicon-plus-sign"></i></a>
+              </div>
+              <!--<div class="inner-addon right-addon">
+                 
+                  <a href="#" class="complex-icon"><i class="glyphicon glyphicon-plus-sign"></i></a>
+              </div>-->
+              <!--<input type="text" name="complext2" class="custom-input" value="Land Area sqm" />
+              <input type="text" name="complext2" class="custom-input" value="complex guid" />-->
+              <!--<div class="inner-addon right-addon">
+                  <input type="text" name="complext2" class="custom-input" value="complex guid" />
+                  <a href="#" class="complex-icon"><i class="glyphicon glyphicon-plus-sign"></i></a>
+              </div>-->
+              <div class="inner-addon right-addon">
+                  <input type="text" name="complext2" class="custom-input" value="view pins (sea, pool, city)" />
+                  <a href="#" class="complex-icon"><i class="glyphicon glyphicon-plus-sign"></i></a>
+              </div>
+              <div class="inner-addon right-addon">
+                  <input type="text" name="complext2" class="custom-input" value="view pin north" />
+                  <a href="#" class="complex-icon"><i class="glyphicon glyphicon-plus-sign"></i></a>
+              </div>
+              <!--<input type="text" name="complext2" class="custom-input" value="10" />
+              <input type="text" name="complext3" class="custom-input" value="11" />
+              <input type="text" name="complext3" class="custom-input" value="12" />
+              <input type="text" name="complext3" class="custom-input" value="13" />
+              <input type="text" name="complext3" class="custom-input" value="14" />-->
+          </div>
+      </div>
+      <div class="col-lg-8 col-md-8">
+          <div class="col-lg-12 col-md-12 nopadding">
+              <div class="complex-map">
+                  <iframe name="InlineFrame1" id="InlineFrame1" style="width:98%;height:527px; margin-left:36px;" src="http://www.freietonne.de/osm/slippymap.html?lon=100.86&lat=12.911&zoom=17">https://www.scribblemaps.com/create/?demoMode#lat=12.89802254924798&lng=100.87206602096558&z=19&t=mb_contrast</iframe>
+              </div>
+              <div class="clearfix"></div>
+              <div class="col-lg-12 col-md-12 nopadding">
+                  <div class="sub-content">
+                      <div class="col-lg-12 col-md-12 nopadding">
+                          <input type="text" class="auto-complete" ng-model="chosenPlace" googleplace/>
+                      </div>
+                      <div class="col-lg-2 col-md-2">
+                          <input type="text" name="" class="texbox-complex" id="street_number" disabled="disabled"/>
+                          <input type="text" name="" class="texbox-complex" id="route" disabled="disabled"/>
+                          <input type="text" name="" class="texbox-complex"  id="locality" disabled="disabled" />
+                          <input type="text" name="" class="texbox-complex" id="administrative_area_level_1" disabled="disabled"/>
+                          <input type="text" name="" class="texbox-complex" id="postal_code" disabled="disabled"/>
+                          <input type="text" name="" class="texbox-complex" id="country" disabled="disabled" />
+                          <input type="text" name="" class="texbox-complex" />
+                          <input type="text" name="" class="texbox-complex" />
+                      </div>
+                      <div class="col-lg-2 col-md-2">
+                          <input type="text" name="" class="texbox-complex" />
+                          <input type="text" name="" class="texbox-complex" />
+                          <input type="text" name="" class="texbox-complex" />
+                          <input type="text" name="" class="texbox-complex" />
+                          <input type="text" name="" class="texbox-complex" />
+                          <input type="text" name="" class="texbox-complex" />
+                          <input type="text" name="" class="texbox-complex" />
+                          <input type="text" name="" class="texbox-complex" />
+                      </div>
+                      <div class="col-lg-2 col-md-2">
+                          <input type="text" name="" class="texbox-complex" />
+                          <input type="text" name="" class="texbox-complex" />
+                          <input type="text" name="" class="texbox-complex" />
+                          <input type="text" name="" class="texbox-complex" />
+                          <input type="text" name="" class="texbox-complex" />
+                          <input type="text" name="" class="texbox-complex" />
+                          <input type="text" name="" class="texbox-complex" />
+                          <input type="text" name="" class="texbox-complex" />
+                      </div>
+                      <div class="col-lg-2 col-md-2">
+                          <input type="text" name="" class="texbox-complex" />
+                          <input type="text" name="" class="texbox-complex" />
+                          <input type="text" name="" class="texbox-complex" />
+                          <input type="text" name="" class="texbox-complex" />
+                          <input type="text" name="" class="texbox-complex" />
+                          <input type="text" name="" class="texbox-complex" />
+                          <input type="text" name="" class="texbox-complex" />
+                          <input type="text" name="" class="texbox-complex" />
+                      </div>
+                      <div class="col-lg-2 col-md-2">
+                          <input type="text" name="" class="texbox-complex" />
+                          <input type="text" name="" class="texbox-complex" />
+                          <input type="text" name="" class="texbox-complex" />
+                          <input type="text" name="" class="texbox-complex" />
+                          <input type="text" name="" class="texbox-complex" />
+                          <input type="text" name="" class="texbox-complex" />
+                          <input type="text" name="" class="texbox-complex" />
+                          <input type="text" name="" class="texbox-complex" />
+                      </div>
+                      <div class="col-lg-2 col-md-2">
+                          <input type="text" name="" class="texbox-complex-name" />
+                          <input type="text" name="" class="texbox-complex-name" />
+                          <input type="text" name="" class="texbox-complex-name" />
+                          <input type="text" name="" class="texbox-complex-name" />
+                          <input type="text" name="" class="texbox-complex-name" />
+                          <input type="text" name="" class="texbox-complex-name" />
+                          <input type="text" name="" class="texbox-complex-name" />
+                          <input type="text" name="" class="texbox-complex-name" />
+                      </div>
+                  </div>
+              </div>
+         </div>         
+      </div>
+      <div class="col-lg-3 col-md-3 nopadding">
+            <h2 class="complex-title manage-building-title">Manage Buildings</h2>
+          <div class="" ng-repeat="building in SelectedBuildings" ng-if="displaybuilding">
+              <div class="col-lg-3 col-md-3">
+                  <div class="inner-addon right-addon">
+                      <input type="text" ng-model="building.Name" class="building-textbox" value="{{building.Name}}" />
+                      <a href="#" class="complex-icon" ng-click="showFloors(building)"><i class="glyphicon glyphicon-eye-open"></i></a>
+                  </div>
+              </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="inner-addon right-addon">
+                        <input type="text" class="custom-input-mini-floor" value="#Floors" />
+                        <a href="#" class="complex-icon-floor"><i class="glyphicon glyphicon-eye-open"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="inner-addon right-addon">
+                        <input type="text" class="custom-input-mini-unit" value="#Units" />
+                        <a href="#" class="complex-icon-unit"><i class="glyphicon glyphicon-eye-open"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="inner-addon right-addon">
+                        <input type="text" class="custom-input-mini-sellable" value="Sellable" />
+                    </div>
+                </div>
+            </div>           
+            <div class="col-md-12 col-lg-12">
+                <button class="btn btn-default btn-small btn-filter add-btn">(+) add building</button>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-lg-12 col-md-12 ">
+                <h2 class="complex-title">Manage Plan</h2>
+            </div>
+            <div class="col-lg-12 col-md-12 nopaddingright">
+                <div class="widget manage-plan">
+                </div>
+            </div>
+              <div class="col-lg-12 col-md-12 nopaddingright">
+                  <div class="widget manage-plan">
+                  </div>
+              </div>     
+
+          </div>
+        <div class="clearfix"></div>
+      
+       
+ </div> <!--end widget-->
+</div> <!--end row-->

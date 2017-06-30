@@ -1,0 +1,19 @@
+﻿.nopadding {
+    padding-left:0px;
+    padding-right:0px;
+}
+.accordion-group .accordion-body .accordion-inner {
+    padding: 15px 15px;
+}
+.custom-text-box-mini {
+    background: rgba(0,0,0, 0.2) !important;
+    border-radius: 4px !important;
+    border: 1px solid #323232 !important;
+    width: 100%;
+    padding: 0px 5px;
+}
+.svg-content {
+    position: absolute;
+    top: -9px;
+    right: 5px;
+}

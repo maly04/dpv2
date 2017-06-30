@@ -1,0 +1,31 @@
+﻿<div class="widget grid">
+    <div class="row">
+        <div class="col-xs-12 col-lg-2" >
+            <a ui-sref="app.marketingmaterial.index">
+                <img src="/directPortal/modules/salesapp/assets/images/resources/{{building.ID}}/logo/logo.svg" class="img-responsive">
+            </a>    
+        </div>
+        <div class="col-xs-12 col-lg-8" >
+            <div align="left">
+                <button aria-label="Toggle ngShow" ng-click="getAll($event)" class="btn btn-default btn-sm btn-category btn-success">All</button>
+                <button aria-label="Toggle ngShow" ng-repeat="category in marketingMaterialTypes" ng-click="changeActiveCategory(category,$event)" class="btn btn-default btn-sm btn-category">{{category.Description}}</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div ng-repeat="marketingMaterial in marketingMaterials" ng-show="activeCategory.ID === marketingMaterial.TypeId && marketingMaterial.Description == building.ID || activeCategory == 'all' && marketingMaterial.Description == building.ID" class="gallery_product col-lg-2 col-md-4 col-sm-4 col-xs-12 filter hdpe check-element animate-show-hide">
+        
+            <div class="embed-responsive embed-responsive-16by9">
+                <!--<video controls class="embed-responsive-item">
+                    <source src="{{media.Url}}" type="video/mp4">
+                </video>-->
+                <a class="example-image-link" href="/directPortal/modules/marketingmaterial/images/materials/{{marketingMaterial.Description}}/{{marketingMaterial.Name}}" data-lightbox="{{marketingMaterial.Description}}" data-title="Click the right half of the image to move forward.">
+                    <img src="/directPortal/modules/marketingmaterial/images/materials/{{marketingMaterial.Description}}/{{marketingMaterial.Name}}" class="img-responsive">
+                </a>
+                
+            </div>
+        </div>
+
+    </div>
+</div>
+

@@ -1,0 +1,34 @@
+﻿<div class="widget">
+    <div class="row">
+       <div class="col-lg-12">
+           <form class="form-horizontal ng-pristine ng-valid" enctype="multipart/form-data" ng-submit="uploadImages()">
+               <div class="form-group">
+                   <div class="col-xs-1">Categories</div>
+                   <div class="col-xs-3">
+                       <select class="form-control" ng-model="categories">
+                           <option ng-repeat="category in marketingMaterialTypes" value="{{category.ID}}">{{category.Description}}</option>                          
+                       </select>
+                   </div>
+                   <div class="clearfix"></div>
+               </div>
+               <div class="form-group">
+                   <div class="col-xs-1">Building logo</div>
+                   <div class="col-xs-3">
+                       <!--<input type="file" ng-model="img.Logo" />-->
+                       <input type="file" id="files" name="files" ng-file-model="files" multiple accept="image/*" />
+                       <!--<input type="file" id="files" multiple="true" class="form-control" ng-model="files" />-->
+                   </div>
+                  
+                   <div class="clearfix"></div> 
+                    <div class="col-xs-2" ng-repeat="file in files">
+                        <img src=" {{file.Url}}"  class="img-responsive img-thumbnail"/>
+                    </div>
+               </div> 
+               <div class="col-xs-3">
+                   <button class="btn btn-default"  type="submit">Upload</button>
+               </div>
+               <div class="clearfix"></div>
+          </form>
+        </div>
+    </div>
+</div>

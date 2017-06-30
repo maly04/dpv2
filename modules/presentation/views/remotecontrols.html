@@ -1,0 +1,112 @@
+﻿
+<style>
+    .btn-custom {
+        background-color: black;
+        color: white;
+        transition-property: background, opacity;
+        transition-duration: 0.5s;
+    }
+
+        .btn-custom:hover, .btn-custom:active, .btn-custom:focus {
+            cursor: pointer;
+            opacity: 0.5;
+            color: white;
+            //background-color:white;
+        }
+</style>
+
+<div class="row-fluid">
+    <div class="col-xs-6">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="checkbox">
+                    <label>
+                        <input ng-model="showPresentation" ng-change="toggleShowPresentation()" type="checkbox" />
+                        show presentation on device
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input ng-model="autoPlay" ng-change="toggleAutoPlay()" type="checkbox"> autoplay
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label for="autoplay-time" class="col-sm-2 control-label">autoplay time (seconds)</label>
+                    <div class="col-sm-5">
+                        <input ng-model="autoplayDelay" type="number" class="form-control" id="autoplay-time" value="3" min="0" max="100" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <button ng-click="nextMedia()" class="btn btn-custom">
+                    <span title="back" id="back"><i class="fa fa-step-backward"></i></span>
+                </button>
+                <button ng-click="" class="btn btn-custom">
+                    <span title="Play" id="play"><i class="fa fa-play"></i></span>
+                </button>
+                <button ng-click="prevMedia()" class="btn btn-custom">
+                    <span title="next" id="next"><i class="fa fa-step-forward"></i></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+
+                <div>
+                    <button class="btn btn-default" ng-click="changeMediaCategory(category)" ng-repeat="category in mediaCategories track by $index">{{category}}</button>
+                </div>
+                <ul class="list-inline">
+                    <li ng-if="activeMediaCategory == media.category || activeMediaCategory == 'all'" ng-repeat="media in medias" ng-click="changeActiveMedia(media)">
+                        <img src="{{media.url}}" width="60" height="60" class="thumbnail img-responsive" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="preview" class="col-xs-6">
+        <h2>Preview</h2>
+        <img class="img-responsive" src="{{activeMedia.url}}" />
+    </div>
+
+</div>
+
+
+
+
+
+<!-- <div class="col-md-6 col-xs-6">
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <button ng-click="" class="btn btn-custom">
+                        <span title="back" id="back"><i class="fa fa-step-backward"></i></span>
+                    </button>
+                    <button ng-click="" class="btn btn-custom">
+                        <span title="Play" id="play"><i class="fa fa-play"></i></span>
+                    </button>
+                    <button ng-click="" class="btn btn-custom">
+                        <span title="next" id="next"><i class="fa fa-step-forward"></i></span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-md-12">
+
+                    <ul class="list-inline">
+                        <li ng-repeat="media in medias">
+                            <img src="{{media.url}}" width="60" height="60" class="thumbnail img-responsive"/>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+
+        </div> -->

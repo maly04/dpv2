@@ -1,0 +1,263 @@
+﻿.page-title {
+    color: #000;
+}
+.matrix-container {
+    width: 80%;
+    display: inline-block;
+    background: #FFF;
+    color: #000;
+    font-weight: 400;
+    overflow: scroll;
+    padding: 10px;
+    font-family: "Courier";
+}
+.white-page-content {
+    display: table;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    width: 5000px;
+}
+.building-floor {
+    display: table-row;
+}
+.row-number {
+    margin: 0;
+    border: 1px solid #111;
+    display: table-cell;
+    background: #FFF;
+    text-align: right;
+    font-size: 8pt;
+    position: relative;
+    color: #111;
+}
+.single-unit {
+    margin: 0;
+    border: 1px solid #111;
+    background: #FFF;
+    text-align: right;
+    font-size: 8pt;
+    color: #111;
+    display: table-cell;
+}
+.single-unit a {
+    color: #111;
+}
+.white-page-content .building-floor > :nth-child(2) {
+    display: block;
+    margin-right: 5px;
+    border-left: none;
+    border-bottom: none;
+}
+.row-number {
+    min-width: auto;
+    background: #F5F5F5;
+    font-size: 14px;
+    vertical-align: middle;
+    padding: 5px;
+}
+.table-heading,
+.heading-text {
+    border-bottom: 1px solid #111;
+    text-align: center;
+    position: relative;
+}
+.currency-type {
+    display: inline-block;
+    font-size: 18px;
+}
+.measurement {
+    display: inline-block;
+    width: 60%;
+    text-align: right;
+    vertical-align: middle;
+}
+.heading-text.thai {
+    background: #F5F5F5;
+}
+.heading-text.foreign {
+    background: lightpink;
+}
+.heading-text.detail {
+    padding: 5px 0px;
+}
+.single-unit.sold {
+    background: #FFE655;
+}
+.single-unit.blocked {
+    background: #D3B7FF;
+}
+.single-unit.available {
+    background: #F5F5F5;
+}
+.single-unit.reserved {
+    background: rgba(151, 203, 255, 0.45);
+}
+.single-unit-content {
+    padding: 0 5px;
+}
+.payment-status {
+    width: 86%;
+    display: block;
+    padding: 0px 0;
+    float: right;
+}
+.payment-status span {
+    display: block;
+    width: 15px;
+    height: 15px;
+    margin: 1px;
+    float: left;
+}
+.payment-status .dark-green {
+    background: #22B573;
+}
+.payment-status .light-green {
+    background: #00FF00;
+}
+.payment-status .matrix-icon {
+    width: 13px;
+    height: 13px;
+    margin: 0 auto;
+    display: block;
+}
+.unit-info {
+    width: 100%;
+    position: relative;
+}
+.sold-in-foreign-name,
+.sold-in-thai-name {
+    text-align: right;
+    margin-left: 5px;
+}
+.matrix-icon {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    vertical-align: bottom;
+}
+.matrix-icon.contract-icon {
+    background: url(../../../theme/img/matrix/contract.svg) no-repeat;
+    background-size: 100%;
+}
+.matrix-icon.reserved-icon {
+    background: url(../../../theme/img/matrix/reserved.svg) no-repeat;
+    background-size: 100%;
+}
+.matrix-icon.furnished-icon {
+    background: url(../../../theme/img/matrix/furnished.svg) no-repeat;
+    background-size: 100%;
+}
+span.unit-number-uid {
+    position: absolute;
+    left: 10px;
+    top: 1px;
+}
+.left-side {
+    position: absolute;
+    left: 5px;
+    font-size: 18px;
+    color: #00ADEE;
+    bottom: -6px;
+    font-family: "Arial";
+}
+span.unit-type {
+    margin: 0 3px;
+}
+.date-contract-sign .signed-date {
+    width: 85%;
+    display: block;
+}
+.date-contract-sign .matrix-icon {
+    position: absolute;
+    left: 5px;
+    width: 13px;
+    height: 13px;
+    bottom: 0;
+}
+.single-unit.corner-unit:before {
+    content: '';
+    width: 5px;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    background: #99ccff;
+    display: block;
+}
+.twenty-percent {
+    text-align:center;
+}
+.little-paid .twenty-percent i {
+    font-size: 16px;
+    color: #FFF;
+}
+.little-paid .light-green {
+    background: none !important;
+    position: absolute;
+    right: 10px;
+}
+.unit-info.fourth-row {
+    position: absolute;
+    bottom: 0;
+}
+.unit-info.third-row {
+    position: absolute;
+    bottom: 25%;
+    right: 5px;
+}
+.unit-info.second-row {
+    position: absolute;
+    top: 25%;
+    right: 5px;
+}
+.unit-info.first-row {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+span.unit-size {
+    padding-right: 5px;
+}
+
+
+.grid-1, .grid-2, .grid-3, .grid-4, .grid-5, .grid-6,
+.grid-7, .grid-8, .grid-9, .grid-10, .grid-11, grid-12 {
+    position: relative;
+    float: left;
+    min-height: 124px;
+}
+.grid-1 {
+    width: 124px;
+}
+.grid-2 {
+    width: 248px;
+}
+.grid-3 {
+    width: 372px;
+}
+.grid-4 {
+    width: 496px;
+}
+.grid-5 {
+    width: 620px;
+}
+.grid-6 {
+    width: 744px;
+}
+.grid-7 {
+    width: 868px;
+}
+.grid-8 {
+    width: 992px;
+}
+.grid-9 {
+    width: 1116px;
+}
+.grid-10 {
+    width: 1240px;
+}
+.grid-11 {
+    width: 1364px;
+}
+.grid-12 {
+    width: 1488px;
+}

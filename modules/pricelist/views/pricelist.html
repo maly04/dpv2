@@ -1,0 +1,177 @@
+﻿<h1 class="page-title">Pricelist</h1>
+<div class="pricelist">
+    <div class="row">
+        <div class="widget">
+            <div class="col-xs-12 col-sm-6 col-md-1 col-lg-1 "> 
+                <div class="accordion" id="buildingsFilter">
+                    <div class="accordion-group">
+                        <!--<div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                                Buildings
+                            </a>
+                        </div>-->
+                        <div id="collapseOne" class="accordion-body collapse in">
+                            <div class="accordion-inner custom-inner" ng-init="active = false">
+                                <button ng-repeat="building in buildings" 
+                                        ng-class="{'btn-primary': active}" class="btn btn-block btn-default btn-small btn-building"
+                                        ng-click="
+                                            active = !active;    
+                                            selectBuilding(building, active);                                            
+                                        "
+                                >
+                                    {{building.Name}}
+                                </button>
+                            </div>
+                        </div>
+                   </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-11 col-lg-11 nopaddingleft ">
+                <div class="row">
+                    <div class="widget">
+                        <div class="col-md-6 col-lg-6 filter-tag  custom-top-btn">
+                            <div class="form-group custom-form-group-type" ng-init="active = false">
+                                <!--<label class="type-font">Type</label>-->
+                                <div class="custom-btn-group">
+                                    <button ng-repeat="type in unitTypes" ng-click="active = !active; selectUnitType(type.ID, active);" ng-class="{'btn-primary': active}" class="btn  btn-default btn-small  btn-unit-type">{{type.Name}}</button>
+                                </div>
+                            </div>
+                            {{units}}
+                            <div class="form-group custom-form-group">
+                                <!--<label class="type-font">Availability</label>-->
+                                <div class="custom-btn-group">
+                                    <button ng-repeat="stat in unitStatuses" ng-click="active = !active; selectUnitStatus(stat.ID, active); " ng-class="{'btn-primary':active};" class="btn  btn-default btn-small btn-small">{{stat.Name}}</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 filter-tag  custom-top-btn">
+                            <form>
+                                <div class="col-md-12 col-lg-12 nopadding">
+
+                                    <div class="col-md-2 col-lg-2 nopadding customWidth">
+                                        <div class="btn-group ">
+                                            <button class="btn btn-mini" ng-click="setActive('sqm')" ng-value="Sqm" ng-class="{'btn-active': isActive('sqm')}">Sqm</button>
+                                            <button class="btn btn-mini" ng-value="Total" ng-click="setActive('total')" ng-class="{'btn-active': isActive('total')}">Total</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6 nopadding">
+                                        <div class="col-md-5 col-lg-5 nopaddingleft ">
+                                            <div> Min <span id="minTitle">k</span> THB (~5%)</div>
+                                            <input type="text" name="min" ng-model="range.min" />
+                                        </div>
+                                        <div class="col-md-5 col-lg-5 pading-left-7">
+                                            <div> Max <span id="maxTitle">k</span> THB (~5%)</div>
+                                            <input type="text" name="max" ng-model="range.max" />
+                                            <input type="hidden" ng-model="range.st" id="st"value="{{st}}" />
+                                            <input type="hidden" ng-model="range.quote" id="quote" value="{{quote}}" />
+                                        </div>
+                                        <div class="col-md-2 col-lg-2">
+                                            &nbsp;
+                                            <a class="btn-mini btn" ng-click="findRange()">Submit</a>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+
+                                </div>
+                                <div class="col-md-12 col-lg-12 nopadding">
+                                    <div class="col-md-2 col-lg-2 nopadding">
+                                        <div class="btn-group custom-btn-group-quote">
+                                            <button class="btn btn-mini" ng-click="setActiveQuote('th')" ng-class="{'btn-active': isQuoteActive('th')}" ng-value="th">TH</button>
+                                            <button class="btn btn-mini" ng-click="setActiveQuote('tc')" ng-class="{'btn-active': isQuoteActive('tc')}" ng-value="tc">TC</button>
+                                            <button class="btn btn-mini" ng-click="setActiveQuote('fr')" ng-class="{'btn-active': isQuoteActive('fr')}" ng-value="fr">FR</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-lg-8"></div>
+                                </div>
+                            </form>
+                          </div>
+                            <!--<div class="col-md-1">
+            <button class="btn-mini" ng-click="resetPriceList()">Reset</button>
+        </div>-->
+                            <div class="clearfix"></div>
+                            <div class="row custom-row">
+                                <div class="col-md-12 col-lg-12">
+                                    <div class="price-list-table-container custom-table-grid">
+                                        <div id="grid1" ui-grid="gridOptions" ui-grid-grouping ui-grid-selection class="grid price-list-table"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!--end widget-->
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-12"></div>
+            <div class="clearfix"></div>
+            <div class="col-md-4 col-lg-4  block-info" ng-if="showUnitDetail">
+                <div class="row">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                Unit Detail
+                            </span>
+                        </div>
+                        <div id="" class="accordion-body collapse in">
+                            <div class="accordion-inner ">
+                                <table class="table table-bordered custom-table">
+                                    <tr>
+                                        <td>Building</td>
+                                        <td>{{buildingsInfo.Building}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>FL</td>
+                                        <td>{{buildingsInfo.Floor}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Unit</td>
+                                        <td>{{getUnitType}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Type</td>
+                                        <td>{{buildingsInfo.Type}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SQM</td>
+                                        <td>{{buildingsInfo.Size}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>               
+            </div>
+            <div class="col-md-4 col-lg-4 nopaddingleft block-info" ng-if="showUnitDetail">
+                <div class="row">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#">
+                                Unit Plan {{buildingsInfo.Type}},{{buildingsInfo.Size}}, <a class="btn-primary btn-mini custom-btn-mini">{{buildingsInfo.Status}}</a>
+                            </span>
+                        </div>
+                        <div id="" class="accordion-body collapse in">
+                            <div class="accordion-inner ">
+                               <img src="/directPortal/resources/buildings/{{buildingsInfo.BuildingId}}/units/{{imageName}}.jpg" class="img-responsive custom-image" alt="Unit Plan"/>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>                    
+            </div>
+            <div class="col-md-4 col-lg-4 nopaddingleft block-info" ng-if="showUnitDetail">
+                <div class="row">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#">
+                                Level Plan {{buildingsInfo.Building}}, {{buildingsInfo.Floor}}
+                            </span>
+                        </div>
+                        <div id="" class="accordion-body collapse in">
+                            <div class="accordion-inner">
+                                <img src="/directPortal/resources/buildings/{{buildingsInfo.BuildingId}}/levels/{{buildingsInfo.BuildingId}}.jpg" class="img-responsive custom-image" alt="Level Plan" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!--end row-->
+</div> <!--end pricelist-->
+
+

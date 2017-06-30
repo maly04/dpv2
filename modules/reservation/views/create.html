@@ -1,0 +1,616 @@
+﻿<div class="create-reservation">
+    <div class="widget widget-tab">
+        <div id="wizard">
+            <ul class="reservation-tabs-nav nav nav-tabs">
+                <li class="active"><a href="#tab1" data-toggle="tab"><span class="label">1.</span> Sales</a></li>
+                <li><a href="#tab2" data-toggle="tab"><span class="label">2.</span> Unit</a></li>
+                <li><a href="#tab3" data-toggle="tab"><span class="label">3.</span> Buyer</a></li>
+                <li><a href="#tab4" data-toggle="tab"><span class="label">4.</span> Requirements</a></li>
+                <li><a href="#tab5" data-toggle="tab"><span class="label">5.</span> Payment</a></li>
+                <li><a href="#tab6" data-toggle="tab"><span class="label">6.</span> Status</a></li>
+                
+            </ul>
+            <p>
+                <a class="btn btn-success" ng-click="saveReservation()"><i class="fa fa-save"></i> Save</a>
+                <a class="btn btn-danger" ng-click="cancelReservation()"><i class="fa fa-times"></i> Cancel</a>
+                <a class="btn btn-info" ng-click="printPreReservation()"><i class="fa fa-print"></i> Print Pre Reservation</a>
+                <a class="btn btn-primary" ng-repeat="status in reservationStatuses" ng-click="setStatus(status)"><i class="fa fa-print"></i> Set Reservation to {{status.Name}}</a>
+            </p>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab1">
+                    <fieldset>
+                        <legend class="pull-left width-full">Sale Information</legend>
+                    </fieldset> 
+                    <form class="form-inline form-sale-info" name="createPreReservation">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="col-md-4">Ownership</label>
+                                        <div class="col-md-7">
+                                            <select class="form-control" required ng-model="reservation.OwnershipTypeID">
+                                                <option ng-repeat="ownershipType in ownershipTypes" value="{{ownershipType.ID}}">{{ownershipType.Name}}</option>
+                                            </select><br />
+                                        </div>                                       
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="row" ng-if="reservation.OwnershipTypeID == thaiCompanyOwnershipType.ID">
+                                            <label class="col-md-4">Company Name</label>
+                                            <div class="col-md-7">
+                                                <input class="form-control" type="text" ng-model="reservation.Name" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label class="col-md-4">Own Sale Person</label>
+                                                <div class="col-md-7">
+                                                    <select ng-model="reservation.SalesPersonID" ng-change="updateActiveSalePerson()" class="form-control" name="salePerson">
+                                                        <option ng-repeat="person in salePersons" value="{{person.ID}}" required>{{person.Name}}</option>
+                                                    </select>
+                                                    <span id="errorMsgSalePerson"></span>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="row widget" ng-if="activeSalePerson !== undefined">
+                                            <h4>Own Sale Person Detail</h4>
+                                            <div class="widget-content">
+                                                <dl class="dl-horizontal">
+                                                    <dt>Contact Person</dt>
+                                                    <dd>{{activeSalePerson.Name}}</dd>
+                                                    <dt>Email</dt>
+                                                    <dd>{{activeSalePerson.Email}}</dd>
+                                                    <dt>Contact</dt>
+                                                    <dd>{{activeSalePerson.ContactDetails.length}}</dd>
+                                                    <dt>Position</dt>
+                                                    <dd>{{activeSalePerson.Occupation}}</dd>
+                                                    <dt>Language</dt>
+                                                    <dd>{{activeSalePerson.Nationality}}</dd>
+                                                </dl>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label class="col-md-4">Commission (Agent) %</label>
+                                                <div class="col-md-7">
+                                                    <input ng-model="reservation.SalesPersonCommission" type="number" class="form-control" min="0" max="100" step="0.01">
+                                                    <span id="errorSaleCommission"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label class="col-md-4">Commission (Agent) comment</label>
+                                                <div class="col-md-7">
+                                                    <textarea ng-model="reservation.SalesPersonCommissionComment" class="form-control" rows="5"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label class="col-md-4">General Remark</label>
+                                                <div class="col-md-7">
+                                                    <textarea ng-model="reservation.GeneralRemark" class="form-control" placeholder="General Remark" rows="5"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="col-md-4">Agency Check</label>
+                                        <div class="col-md-7">
+                                            <select ng-model="reservation.reservationType" class="form-control">
+                                                <option value="walk-in">Walk-in</option>
+                                                <option value="agency">Agency</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" ng-if="reservation.reservationType == 'agency'">
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <label class="col-md-4">Agency</label>
+                                            <div class="col-md-7">
+                                                <select ng-model="reservation.AgencyID" class="form-control" ng-change="updateActiveAgency()" data-parsley-group="wizard-step-2" required>
+                                                    <option ng-repeat="agency in Agencies" value="{{agency.ID}}">{{agency.Name}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div ng-if="reservation.AgencyID != undefined" class="row widget panel">
+                                        <div class="panel-heading">
+                                            Agency Detail:
+                                        </div>
+                                        <div class="panel-body">
+                                            <dl class="dl-horizontal">
+                                                <dt>Agency name</dt>
+                                                <dd>{{activeAgency.Name}}</dd>
+                                                <dt>Contact Person</dt>
+                                                <dd></dd>
+                                                <dt>Contract</dt>
+                                                <dd></dd>
+                                                <dt>Address</dt>
+                                                <dd>{{activeAgency.ContactAddresses}}</dd>
+                                                <dt>Area Code</dt>
+                                                <dd></dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <label class="col-md-4">Commission (Agency) %</label>
+                                            <div class="col-md-7">
+                                                <input ng-model="reservation.AgencyCommission" type="number" class="form-control" min="0" max="100" step="0.01" data-parsley-group="wizard-step-1" data-parsley-type="number" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <label class="col-md-4">Commission (Agency) comment</label>
+                                            <div class="col-md-7">
+                                                <textarea ng-model="reservation.AgencyCommissionComment" class="form-control" rows="5" data-parsley-group="wizard-step-1" required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="col-md-4">Reservation Date</label>
+                                        <div class="col-md-8">
+                                            <input type="date" ng-model="reservation.DateOfReservation" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="col-md-4">Contract Date</label>
+                                        <div class="col-md-8">
+                                            <input type="date" ng-model="reservation.DateOfContract" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane" id="tab2">
+                    <fieldset>
+                        <legend class="pull-left width-full">Unit Information</legend>
+                    </fieldset>
+                    <form class="form-inline form-unit-info">
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="col-md-4">Complex</label>
+                                    <div class="col-md-7">
+                                        <select class="form-control" required>
+                                            <option ng-repeat="complex in Complexes" value="{{complex.ID}}">{{complex.Name}}</option>
+                                        </select>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="col-md-4">Building</label>
+                                    <div class="col-md-7">
+                                        <select class="form-control" required>
+                                            <option ng-repeat="building in Buildings" value="{{building.ID}}">{{building.Name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="col-md-4">Unit</label>
+                                    <div class="col-md-7">
+                                        <select class="form-control" ng-model="reservation.UnitID" required>
+                                            <option ng-repeat="unit in Units" value="{{unit.ID}}">{{unit.UnitNumber}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="col-md-4">Aprox Area</label>
+                                    <div class="col-md-7">
+                                        <div class="input-group">
+                                            <input ng-model="selectedUnitObject.Size" type="text" class="form-control" />
+                                            <span class="input-group-addon">Sqm</span>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="col-md-4">Price per sqm</label>
+                                    <div class="col-md-7">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" value="{{selectedUnitObject.Prices.Thai / selectedUnitObject.Size}}" />
+                                            <span class="input-group-addon"><i class="fa fa-money"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="col-md-4">List Price</label>
+                                    <div class="col-md-7">
+                                        <div class="input-group">
+                                            <input ng-model="selectedUnitObject.Prices.Thai" type="text" class="form-control" />
+                                            <span class="input-group-addon"><i class="fa fa-money"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="col-md-4">Selling Price</label>
+                                    <div class="col-md-7">
+                                        <div class="input-group">
+                                            <input ng-model="sellingPrice" type="number" class="form-control" />
+                                            <span class="input-group-addon"><i class="fa fa-money"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="col-md-4">Discount Price</label>
+                                    <div class="col-md-7">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" />
+                                            <span class="input-group-addon"><i class="fa fa-money"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="col-md-4">Furniture Price</label>
+                                    <div class="col-md-7">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" />
+                                            <span class="input-group-addon"><i class="fa fa-money"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="col-md-4">Add Furniture to Actual Price</label>
+                                    <div class="col-md-7">
+                                        <div class="checkbox">
+                                            <input type="checkbox" value="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="col-md-4">Assignment Fee</label>
+                                    <div class="col-md-7">
+                                        <input type="number" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="col-md-4">Exclude Electric meter Fee</label>
+                                    <div class="col-md-7">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="col-md-4">Exclude Maintenance Fee</label>
+                                    <div class="col-md-7">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="col-md-4">Exclude Transfer Fee</label>
+                                    <div class="col-md-7">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form> 
+                </div>
+                <div class="tab-pane" id="tab3">
+                    <fieldset>
+                        <legend class="pull-left width-full">Buyer</legend>
+                    </fieldset>
+                    <div class="col-md-12">
+                        <ul id="contactDetails-nav" class="nav nav-tabs">
+                            <li class="active"><a href="#" data-target="#default-tab-1" data-toggle="tab">Primary contact</a></li>
+                            <li ng-repeat="tab in contactTabs"><a href="#" data-target="#default-tab-{{tab.tabcount}}" data-toggle="tab">Other Contact</a></li>
+                            <li><a href="#" ng-click="addTab()"><i class="fa fa-plus"></i>Add contact</a></li>
+                        </ul>
+                        <div id="contactDetails-tab-content" class="tab-content">
+                            <div class="tab-pane fade active in" id="default-tab-1">
+                                <ng-include src="'/directPortalAdmin/template/reservationBuyerInformation.html'"></ng-include>
+                            </div>
+                            <div ng-repeat="tab in contactTabs" class="tab-pane fade" id="default-tab-{{tab.tabcount}}">
+                                <span ng-click="removeTab($index)"><i class="fa fa-close"></i>remove</span>
+                                <ng-include src="'/directPortalAdmin/template/reservationBuyerInformation.html'"></ng-include>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab4">
+                    <fieldset>
+                        <legend class="pull-left width-full">Sales Requests</legend>
+                    </fieldset>
+                    <form class="form-inline">
+                        <!-- begin row -->
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="col-md-4">Construction</label>
+                                        <textarea ng-model="reservation.SalesRequests[0].Description" class="form-control" placeholder="Textarea" rows="5"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="col-md-4">Furniture</label>
+                                        <textarea class="form-control" placeholder="Textarea" rows="5"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="col-md-4">Electric</label>
+                                        <textarea class="form-control" placeholder="Textarea" rows="5"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="col-md-4">Other</label>
+                                        <textarea class="form-control" placeholder="Textarea" rows="5"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="col-md-4">Construction Start</label>
+                                        <input type="number" class="form-control" min="0">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="col-md-4">Show in contract</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optionsRadios" value="true" />
+                                                yes
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optionsRadios" value="false" checked />
+                                                no
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end row -->
+                    </form>
+                       
+                    
+                </div>
+                <div class="tab-pane" id="tab5">
+                    <fieldset>
+                        <legend class="pull-left width-full">
+                            Terms of Payment -
+                            <span>payment Methods:</span>
+                            <a ng-repeat="paymentMethod in PaymentMethods" ng-click="changePaymentMethod(paymentMethod)" class="btn btn-sm btn-Default">{{paymentMethod.Name}}</a>
+                        </legend>
+                    </fieldset>
+                    <form class="form-inline">
+                        <!-- begin row -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="col-md-4">Deposit</label>
+                                        <div class="input-group">
+                                            <input ng-model="reservation.Deposit" type="number" min="0" class="form-control">
+                                            <span class="input-group-addon"><i class="fa fa-money"></i></span>
+                                        </div>
+                                        <div class="input-group">
+                                            <input ng-model="depositPercent" type="number" step="0.01" value="0" min="0" class="form-control">
+                                            <span class="input-group-addon">%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="col-md-4">On Contract</label>
+                                        <div class="input-group">
+                                            <input ng-model="reservation.OnContract" type="number" min="0" class="form-control">
+                                            <span class="input-group-addon"><i class="fa fa-money"></i></span>
+                                        </div>
+                                        <div class="input-group">
+                                            <input ng-model="contractPercent" type="number" step="0.01" value="0" min="0" class="form-control">
+                                            <span class="input-group-addon">%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="col-md-4">No of Installments</label>
+                                        <div class="input-group">
+                                            <input ng-model="reservation.Installments" type="number" min="1" max="40" class="form-control">
+                                            <span class="input-group-addon" id="installment-detail" ng-class="{true: 'redbg', false: 'greenbg'}[InstallmentsOverflow !== 0]">
+                                                {{sellingPrice - (reservation.Deposit + reservation.OnKey + reservation.OnContract)}} ({{InstallmentsOverflow}})
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="col-md-4">On Key</label>
+                                        <div class="input-group">
+                                            <input ng-model="reservation.OnKey" type="number" placeholder="Amount" min="0" class="form-control">
+                                            <span class="input-group-addon"><i class="fa fa-money"></i></span>
+                                        </div>
+                                        <div class="input-group">
+                                            <input ng-model="onkeyPercent" type="number" placeholder="%" step="0.01" value="0" min="0" class="form-control">
+                                            <span class="input-group-addon">%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="col-md-4">Subtotal</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" value="{{sellingPrice}}" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="col-md-4">Maintenance</label>
+                                        <div class="input-group">
+                                            <input ng-model="maintenancePrice" type="text" class="form-control" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="col-md-4">Sinking Funds</label>
+                                        <div class="input-group">
+                                            <input ng-model="sinkingFundsPrice" type="text" class="form-control" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="col-md-4">Electric Meter</label>
+                                        <div class="input-group">
+                                            <input ng-model="electricMeter" type="text" class="form-control" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="col-md-4">% of Transfer</label>
+                                        <div class="input-group">
+                                            <input ng-model="reservation.TransferPercentage" type="number" placeholder="%" step="0.01" min="0" class="form-control">
+                                            <span class="input-group-addon">%</span>
+                                        </div>
+                                        <div class="input-group">
+                                            <input ng-model="TransferAmount" type="text" class="form-control" disabled>
+                                        </div>
+                                    </div>
+                                </div>    
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="col-md-4">Subtotal Fees</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" value="{{maintenancePrice + sinkingFundsPrice + electricMeter}}" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="col-md-4">Grand Total</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" value="{{maintenancePrice + sinkingFundsPrice + electricMeter + sellingPrice}}" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6" style="background-color:lightblue">
+                                <style>
+                                    ol#tttwo-columns {
+                                        list-style-type: none;
+                                        -moz-column-count: 4;
+                                        /*-moz-column-gap: 20px;*/
+                                        -webkit-column-count: 4;
+                                        /*-webkit-column-gap: 20px;*/
+                                        column-count: 4;
+                                        /*column-gap: 20px;*/
+                                    }
+                                </style>
+                                <ol id="tttwo-columns">
+                                    <li ng-repeat="installment in InstallmentsDetail">
+                                        <div>
+                                            <span>{{$index +1}}.</span>
+                                            <span>{{installment.amount}}</span>
+                                            <span>{{installment.day}}</span>
+                                            <input ng-model="InstallmentsDetail[$index].date" type="date" ng-change="changeInstallmentDate($index)" />
+                                        </div>
+                                    </li>
+                                </ol>
+
+                            </div>
+                        </div>
+                        <!-- end row -->
+                    </form>
+                </div>
+                <div class="tab-pane" id="tab6">
+                    <fieldset>
+                        <legend class="pull-left width-full">Status</legend>
+                        <!-- begin row -->
+                        <div class="row">
+
+                            <div class="col-xs-12">
+                                <div ng-repeat="unitStatus in UnitStatuses" class="col-xs-3">
+                                    <h3>{{unitStatus.Shortcode}}</h3>
+                                    <hr />
+                                    <ul class="checkbox" style="list-style-type: none;">
+                                        <li ng-repeat="statusType in salesStatusTypes">
+                                            <label>
+                                                <input type="checkbox" /> {{statusType.Name}}
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end row -->
+                    </fieldset>
+                </div>
+                <ul class="pager wizard">
+                    <li class="previous first" style="display:none;"><a href="#">First</a></li>
+                    <li class="previous"><a href="#">Previous</a></li>
+                    <li class="next last" style="display:none;"><a href="#">Last</a></li>
+                    <li class="next"><a href="#">Next</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

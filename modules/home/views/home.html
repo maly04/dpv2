@@ -1,0 +1,350 @@
+﻿<style>
+    .filter-input {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 0;
+        position: relative;
+    }
+
+    .filter-input .btn-search {
+        position: absolute;
+        top: 7px;
+        right: 14px;
+    }
+
+    .button-group {
+        padding-top: 5px;
+    }
+
+    .filter-input input {
+        padding: 5px 5px;
+        height: 25px;
+        margin: 5px 10px 5px 0;
+    }
+
+    .btn-search {
+        font-size: 8px;
+        padding: 0px 5px;
+        margin: 0;
+    }
+
+    .widget .navbar-default {
+        margin: 0;
+    }
+
+    .home-view .widget {
+        padding-top:  10px;
+    }
+</style>
+<div class="home-view">
+    <h2 class="page-title">Home</h2>
+    <div class="row">
+        <div class="widget">
+            <nav class="navbar navbar-default">
+                <div class="filter-input pull-left">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                            <button type="submit" class="btn btn-small btn-search"><i class="fa fa-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="button-group pull-left">
+                    <button class="btn btn-default btn-small btn-filter">Filter</button>
+                    <button class="btn btn-default btn-small btn-filter">Filter</button>
+                    <button class="btn btn-default btn-small btn-filter">Filter</button>
+                    <button class="btn btn-default btn-small btn-filter">Filter</button>
+                </div>
+            </nav>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="widget">
+                            <div class="widget-header">
+                                <h4>
+                                    News
+                                    <a href="#" class="btn pull-right btn-default">View All</a>
+                                </h4>
+                            </div>
+                            <div class="widget-content">
+                                <ul class="news-list">
+                                    <li>
+                                        <a href="#">
+                                            <div class="news-media">
+                                                <img alt="" src="assets/img/user-profile-pic-4.png">
+                                            </div>
+                                            <div class="news-info">
+                                                <h4 class="news-title">21 Inspiring Clean Website Designs</h4>
+                                                <span class="news-date">Posted On Feb <i class="date">21, 2013</i></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="news-media">
+                                                <img alt="" src="assets/img/user-profile-pic-2.png">
+                                            </div>
+                                            <div class="news-info">
+                                                <div class="news-title">The Benefits of Working on Freelance Projects</div>
+                                                <div class="news-date">Posted On Feb <span class="date">21, 2013</span></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="news-media">
+                                                <img alt="" src="assets/img/user-profile-pic-3.png">
+                                            </div>
+                                            <div class="news-info">
+                                                <div class="news-title">The Flexible Web</div>
+                                                <div class="news-date">Posted On Feb <span class="date">21, 2013</span></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="widget">
+                            <div class="widget-header">
+                                <h4>
+                                    {{decription}}
+                                    <a href="#" class="btn pull-right btn-default">View All</a>
+                                </h4>
+                            </div>
+                            <div class="widget-content">
+                                <ul class="news-list">
+                                    <li>
+                                        <a href="#">
+                                            <div class="news-media">
+                                                <img alt="" src="assets/img/user-profile-pic-4.png">
+                                            </div>
+                                            <div class="news-info">
+                                                <h4 class="news-title">21 Inspiring Clean Website Designs</h4>
+                                                <span class="news-date">Posted On Feb <i class="date">21, 2013</i></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="news-media">
+                                                <img alt="" src="assets/img/user-profile-pic-2.png">
+                                            </div>
+                                            <div class="news-info">
+                                                <div class="news-title">The Benefits of Working on Freelance Projects</div>
+                                                <div class="news-date">Posted On Feb <span class="date">21, 2013</span></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="news-media">
+                                                <img alt="" src="assets/img/user-profile-pic-3.png">
+                                            </div>
+                                            <div class="news-info">
+                                                <div class="news-title">The Flexible Web</div>
+                                                <div class="news-date">Posted On Feb <span class="date">21, 2013</span></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="widget">
+                            <div class="widget-header">
+                                <h4>
+                                    News
+                                    <a href="#" class="btn pull-right btn-default">View All</a>
+                                </h4>
+                            </div>
+                            <div class="widget-content">
+                                <ul class="news-list">
+                                    <li>
+                                        <a href="#">
+                                            <div class="news-media">
+                                                <img alt="" src="assets/img/user-profile-pic-4.png">
+                                            </div>
+                                            <div class="news-info">
+                                                <h4 class="news-title">21 Inspiring Clean Website Designs</h4>
+                                                <span class="news-date">Posted On Feb <i class="date">21, 2013</i></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="news-media">
+                                                <img alt="" src="assets/img/user-profile-pic-2.png">
+                                            </div>
+                                            <div class="news-info">
+                                                <div class="news-title">The Benefits of Working on Freelance Projects</div>
+                                                <div class="news-date">Posted On Feb <span class="date">21, 2013</span></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="news-media">
+                                                <img alt="" src="assets/img/user-profile-pic-3.png">
+                                            </div>
+                                            <div class="news-info">
+                                                <div class="news-title">The Flexible Web</div>
+                                                <div class="news-date">Posted On Feb <span class="date">21, 2013</span></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="widget">
+                            <div class="widget-header">
+                                <h4>
+                                    News
+                                    <a href="#" class="btn pull-right btn-default">View All</a>
+                                </h4>
+                            </div>
+                            <div class="widget-content">
+                                <ul class="news-list">
+                                    <li>
+                                        <a href="#">
+                                            <div class="news-media">
+                                                <img alt="" src="assets/img/user-profile-pic-4.png">
+                                            </div>
+                                            <div class="news-info">
+                                                <h4 class="news-title">21 Inspiring Clean Website Designs</h4>
+                                                <span class="news-date">Posted On Feb <i class="date">21, 2013</i></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="news-media">
+                                                <img alt="" src="assets/img/user-profile-pic-2.png">
+                                            </div>
+                                            <div class="news-info">
+                                                <div class="news-title">The Benefits of Working on Freelance Projects</div>
+                                                <div class="news-date">Posted On Feb <span class="date">21, 2013</span></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="news-media">
+                                                <img alt="" src="assets/img/user-profile-pic-3.png">
+                                            </div>
+                                            <div class="news-info">
+                                                <div class="news-title">The Flexible Web</div>
+                                                <div class="news-date">Posted On Feb <span class="date">21, 2013</span></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="widget">
+                            <div class="widget-header">
+                                <h4>
+                                    News
+                                    <a href="#" class="btn pull-right btn-default">View All</a>
+                                </h4>
+                            </div>
+                            <div class="widget-content">
+                                <ul class="news-list">
+                                    <li>
+                                        <a href="#">
+                                            <div class="news-media">
+                                                <img alt="" src="assets/img/user-profile-pic-4.png">
+                                            </div>
+                                            <div class="news-info">
+                                                <h4 class="news-title">21 Inspiring Clean Website Designs</h4>
+                                                <span class="news-date">Posted On Feb <i class="date">21, 2013</i></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="news-media">
+                                                <img alt="" src="assets/img/user-profile-pic-2.png">
+                                            </div>
+                                            <div class="news-info">
+                                                <div class="news-title">The Benefits of Working on Freelance Projects</div>
+                                                <div class="news-date">Posted On Feb <span class="date">21, 2013</span></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="news-media">
+                                                <img alt="" src="assets/img/user-profile-pic-3.png">
+                                            </div>
+                                            <div class="news-info">
+                                                <div class="news-title">The Flexible Web</div>
+                                                <div class="news-date">Posted On Feb <span class="date">21, 2013</span></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="widget">
+                            <div class="widget-header">
+                                <h4>
+                                    News
+                                    <a href="#" class="btn pull-right btn-default">View All</a>
+                                </h4>
+                            </div>
+                            <div class="widget-content">
+                                <ul class="news-list">
+                                    <li>
+                                        <a href="#">
+                                            <div class="news-media">
+                                                <img alt="" src="assets/img/user-profile-pic-4.png">
+                                            </div>
+                                            <div class="news-info">
+                                                <h4 class="news-title">21 Inspiring Clean Website Designs</h4>
+                                                <span class="news-date">Posted On Feb <i class="date">21, 2013</i></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="news-media">
+                                                <img alt="" src="assets/img/user-profile-pic-2.png">
+                                            </div>
+                                            <div class="news-info">
+                                                <div class="news-title">The Benefits of Working on Freelance Projects</div>
+                                                <div class="news-date">Posted On Feb <span class="date">21, 2013</span></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="news-media">
+                                                <img alt="" src="assets/img/user-profile-pic-3.png">
+                                            </div>
+                                            <div class="news-info">
+                                                <div class="news-title">The Flexible Web</div>
+                                                <div class="news-date">Posted On Feb <span class="date">21, 2013</span></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- end row-fluid -->
+</div>
+

@@ -1,0 +1,26 @@
+﻿<h2 class="page-title">Request List</h2>
+<div class="widget">
+    <div class="row">
+        <div class="col-xs-12 col-lg-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td ng-repeat="col in cols">{{col}}</td>
+                        <td>Action(s)</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="request in requests">
+                        <td>{{request.id}}</td>
+                        <td>{{request.category}}</td>
+                        <td>{{request.description}}</td>
+                        <td><a ui-sref="app.buildingmanagement.requestdetail({requestId:request.id})"><i class="fa fa-search"></i></a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</div>
+    

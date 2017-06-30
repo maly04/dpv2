@@ -1,0 +1,31 @@
+﻿<!-- Body Cover Image
+    ================================================== -->
+<div class="body-cover"></div>
+
+<!-- Login Container
+================================================== -->
+<div id="login">
+    <div class="brand">
+        <span class="color"><i class="fa fa-map-marker"></i> Direct </span>Portal
+    </div>
+    <div class="login-container">
+        <div class="login-header">
+            <i class="icon-lock" id="login-signal"></i> SIGN IN
+        </div>
+        <div class="login-content">
+            <form class="margin-bottom-0" ng-submit="login()">
+                <input type="text" class="form-control" placeholder="Email Address" ng-model="user.username"><br>
+                <input type="password" class="form-control" placeholder="Password" ng-model="user.password"><br>
+                <div class="checkbox">
+                    <label class="">
+                        <input type="checkbox"> Remember Me
+                    </label>
+                </div>
+                <div class="login-buttons">
+                    <button type="submit" class="btn btn-success" ng-click="login()"><i class="icon-signin"></i> Sign me in</button>
+                    <a href="#" class="pull-right">Forgot Password?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div><!-- end #login -->

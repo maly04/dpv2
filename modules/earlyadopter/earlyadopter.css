@@ -1,0 +1,127 @@
+﻿.nopadding {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.icon-svg {
+    top: 3px;
+    position: absolute;
+    right: 5px;
+}
+
+.custom-text-box-mini {
+    background: rgba(0,0,0, 0.2) !important;
+    border-radius: 4px !important;
+    border: 1px solid #323232 !important;
+    width: 100%;
+    padding: 0px 5px;
+}
+.nopaddingleft {
+    padding-left: 0px;
+}
+
+.nopaddingright {
+    padding-right: 0px;
+}
+
+.set-margin-bottom {
+    margin-bottom: 9px;
+}
+
+.widget-set-margin-bottom {
+    margin-bottom: 15px;
+}
+
+.svg {
+    top: 4px;
+    position: absolute;
+    right: 5px;
+}
+
+.custom-svg {
+    top: 3px !important;
+}
+
+.icon-svg {
+    top: 3px;
+    position: absolute;
+    right: 7px;
+}
+.custom-btn-early-adopter {
+    text-align: left;
+    width: 94px;
+    height: 25px;
+    background: #323232;
+}
+.btn-svg {
+    position: absolute;
+    top: 4px;
+    right: 12px;
+}
+.custom-text-number {
+    /*width: 20px;*/
+    height: 20px;
+}
+.set-margin-top {
+    margin-top:8px;
+}
+.custom-icon-svg {
+    top: 3px;
+    position: absolute;
+    right: 20px;
+}
+.showGraphic {
+   /*height:100px;*/ 
+}
+.grid-list-table {
+    font-size: 12px;
+    /*color: #000;*/
+    font-family: "open sans" !important;
+}
+.custom-widget-padding {
+    padding-bottom:10px;
+}
+.widget-set-margin-top {
+    margin-top:9px;
+}
+.widget-set-margin-top-5 {
+    margin-top:5px;
+}
+.custom-to {
+    width:40px !important;
+}
+.svg-arrow-up {
+
+}
+.svg-arrow-down {
+    position: relative;
+    top: -5px;
+}
+.arrow {
+    position: absolute;
+    top: -2px;
+    left: 54px;
+}
+.arrow-to {
+    position: absolute;
+    top: -2px;
+    left: 62px;
+}
+.label-svg {
+    position: absolute;
+    top: 1px;
+    left: -47px;
+}
+.ui-grid {
+    border:1px solid #323232 !important;
+}
+.ui-grid-header-cell-row {
+    background: #323232 !important;
+    border: 1px solid #323232 !important;
+}
+.ui-grid-header-cell {
+    border-right:0px !important;
+}
+.ui-grid-header {
+    border-bottom:0px !important;
+}

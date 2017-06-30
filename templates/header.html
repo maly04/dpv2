@@ -1,0 +1,65 @@
+﻿<!-- Body Cover Image & Logo
+    ================================================== -->
+<div class="body-cover"></div>
+<div class="logo"><i class="glyphicon glyphicon-map-marker"></i> {{'TEXT_APP_NAME' | translate}}</div>
+
+<!-- Top Navigation
+    ================================================== -->
+<div id="top-nav" ng-controller="headerController">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header pull-right">
+                <button type="button" class="navbar-toggle pull-right" data-toggle="collapse" data-target="#sidebar" aria-expanded="false" ng-click="togglesidebar()">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <ul class="nav pull-right">
+                    <!--<li>
+                        <div class="global-filter button-group pull-left">
+                            <button class="btn btn-default btn-small btn-filter active">Filter</button>
+                            <button class="btn btn-default btn-small btn-filter">Filter</button>
+                            <button class="btn btn-default btn-small btn-filter">Filter</button>
+                            <button class="btn btn-default btn-small btn-filter">Filter</button>
+                        </div>
+                        <div class="global-filter filter-input pull-left">
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Search">
+                                    <button type="submit" class="btn btn-small btn-search"><i class="fa fa-search"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </li>-->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" title="">
+                            <i class="fa fa-globe" aria-hidden="true"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li ng-click="changeLang(lang)" ng-repeat="lang in languages">
+                                <a href="javascript:;">
+                                    <span class="flag flag-{{lang.Code | split:'-':1 | lower}}" title="{{lang.Name}}"></span>{{lang.Name}}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#" title=""><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+                    <li><a href="#" title=""><i class="fa fa-info-circle" aria-hidden="true"></i></a></li>
+                    <li class="divider-vertical"></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <img alt="" src="theme/img/user-profile-pic-0.png"> <span class="hidden-xs">{{username}}</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a ui-sref="app.users.profile({id: '{{username}}'})"><i class="fa fa-user"></i> My Profile</a></li>
+                            <li><a href="#"><i class="fa fa-cogs"></i> Setting</a></li>
+                            <li class="divider"></li>
+                            <li><a ng-click="logout()" href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- end navbar .container -->
+    </nav><!-- end navbar -->
+</div><!-- end #top-navigation -->

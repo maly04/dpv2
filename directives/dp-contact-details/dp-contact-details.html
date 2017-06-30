@@ -1,0 +1,41 @@
+﻿<div ng-if="action == 'view'">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Type Name</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="contactdetail in getcontactdetails" ng-if="contactdetail.Value != ''">
+                <td>{{contactTypeNames[contactdetail.TypeId-1]}}</td>
+                <td>{{contactdetail.Value}}</td>
+            </tr>
+       </tbody>
+    </table>
+</div>
+<div ng-if="action == 'edit'">
+    <!-- put repeating section with contactdetailtype and contactdetail.value -->
+    <form class="form-horizontal ng-pristine ng-valid">
+        <div class="form-group" data-ng-repeat="c in contact">
+            <div class="col-xs-2"><label class="control-label">Contact Detail</label></div>
+            <div class="col-xs-4">
+                <select class="form-control" ng-model="c.TypeId">
+                    <option ng-repeat="type in contactDetailsType" value="{{type.ID}}">{{type.Name}}</option>
+                </select>
+            </div>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" ng-model="c.Value"/>
+            </div>
+            <div class="col-xs-2">
+                <a class="remove btn btn-default" ng-show="$last" ng-click="removeContact()" ng-hide="remove" ng-if="$last">-</a>
+                <a class="btn btn-default" ng-show="$first" ng-click="addMoreContactDetails()"><i class="fa fa-plus"></i></a>
+            </div>
+         </div>
+        <!--End ng-repeat-->      
+        <div class="col-xs-5">
+            <button class="btn btn-default" ng-click="submit()" type="submit">Submit</button>
+        </div>
+        <div class="clearfix"></div>
+    </form>
+</div>

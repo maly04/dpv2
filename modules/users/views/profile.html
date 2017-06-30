@@ -1,0 +1,132 @@
+﻿<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <div class="widget">
+            <div class="widget-header">
+                <h4>Person Details</h4>
+            </div>
+            <div class="widget-content">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#overview" data-toggle="tab"><i class="icon-desktop"></i> <span class="hidden-sm">Overview</span></a></li>
+                    <li><a href="#edit-profile" data-toggle="tab"><i class="icon-edit"></i> <span class="hidden-sm">Edit Profile</span></a></li>
+                    <li><a href="#change-image" data-toggle="tab"><i class="icon-picture"></i> <span class="hidden-sm">Change Image</span></a></li>
+                    <li><a href="#change-password" data-toggle="tab"><i class="icon-lock"></i> <span class="hidden-sm">Change Password</span></a></li>
+                    <li><a href="#contact-details" data-toggle="tab"><i class="icon-lock"></i> <span class="hidden-sm">Contact Details</span></a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade active in" id="overview">
+                        <div class="user-profile">
+                            <div class="profile-header">
+                                <i class="icon-info-sign"></i> Overview
+                            </div>
+                            <div class="profile-image">
+                                <img src="theme/img/user-profile-pic-4.png" alt="">
+                            </div>
+                            <div class="profile-info">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td><span class="field-name">Username:</span> <span class="detail">{{userProfile.UserName}}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="field-name">First Name:</span> <span class="detail">{{userProfile.FirstName}}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="field-name">Last Name:</span> <span class="detail">{{userProfile.LastName}}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="field-name">Country:</span> <span class="detail">{{userProfile.Nationality}}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="field-name">Date of Birth:</span> <span class="detail">{{userProfile.DateOfBirth}}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="field-name">Email:</span> <span class="detail">{{userProfile.Email}}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="field-name">Failed Access Count:</span> <span class="detail">{{userProfile.AccessFailedCount}}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="field-name">Phone Number:</span> <span class="detail">{{userProfile.PhoneNumber}}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="field-name">Type:</span> <span class="detail">{{userType}}</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="profile-footer">
+                                <a href="#" class="btn btn-success btn-lg"><i class="fa fa-save"></i> Save Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="edit-profile">
+                        <div class="user-profile">
+                            <form class="form-horizontal margin-bottom-0">
+                                <div class="profile-header">
+                                    <i class="icon-cogs"></i> Edit
+                                </div>
+                                <!--<dp-contact-details dp-action="edit" dp-entity="Person" dp-entity-id="654"></dp-contact-details>--> 
+                                <dp-contact-addresses dp-action="edit" dp-entity="Person" dp-entity-id="654"></dp-contact-addresses>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="change-image">
+                        <div class="user-profile">
+                            <form class="form-horizontal margin-bottom-0">
+                                <div class="profile-header">
+                                    <i class="icon-picture"></i> Profile Image
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Image</label>
+                                    <div class="controls user-profile padding-0">
+                                        <div class="profile-image">
+                                            <img src="theme/img/user-profile-pic-4.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="controls">
+                                        <input type="file" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary"><i class="icon-ok-sign"></i> Update</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="change-password">
+                        <div class="user-profile">
+                            <form class="form-horizontal margin-bottom-0">
+                                <div class="profile-header">
+                                    <i class="icon-lock"></i> Change Password
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Current Password</label>
+                                    <div class="controls"><input type="password" class="form-control"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">New Password</label>
+                                    <div class="controls"><input type="password" class="form-control"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">New Password Again</label>
+                                    <div class="controls"><input type="password" class="form-control"></div>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary"><i class="icon-ok-sign"></i> Update</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="contact-details">
+                        <div class="user-profile">
+                            <dp-contact-details dp-action="view" dp-entity="Person" dp-entity-id="654"></dp-contact-details>
+                            <dp-contact-addresses dp-action="view" dp-entity="Person" dp-entity-id="654"></dp-contact-addresses>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- end span12 -->
+</div><!-- end row-fluid -->

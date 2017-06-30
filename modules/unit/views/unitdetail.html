@@ -1,0 +1,98 @@
+﻿<style>
+    .bg-white{
+        background: #FFF;
+        color: #333;
+    }
+    .unit-button-container {
+        margin-bottom: 10px;
+    }
+</style>
+<div class="unit-detail-page">
+    <div class="col-lg-12 main-detail" style="background-color:{{unit.Status.Color}}">
+        <div class="col-lg-4">
+            <div class="unit-detail-content">
+                <div class="unit-bulilding-name">
+                    <h4><b>{{unit.Building.Name}}</b></h4>
+                    <h4>
+                        Unit: {{unit.UnitNumber}}
+                    </h4>
+                    <ul class="pager text-left">
+                        <li><a class="btn" ui-sref="app.unit.detail({id:unit.ID - 1})" ui-sref-opts="{reload: true, notify: true}"><i class="fa fa-backward"></i></a></li>
+                        <li><a class="btn" ui-sref="app.unit.detail({id:unit.ID + 1})" ui-sref-opts="{reload: true, notify: true}"><i class="fa fa-forward"></i></a></li>
+                    </ul>
+                </div>
+               
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="unit-detail-content">
+                <h4>Total units in Building: {{numberOfUnits.length}}</h4>
+                <h4>{{unit.Type.Name}}, {{unit.Size}} sq.m</h4>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="unit-detail-content">
+                <h4 ng-repeat="price in unit.Prices">
+                    <span class="price-label">
+                        Price {{price.Type.Name}}:
+                    </span>
+                    {{price.Value | number:2}} Baht({{price.Value / unit.Size | number:2}} Baht / sq.m )
+                </h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 sub-detail bg-white">
+        <div class="col-lg-4 ">
+            <div class="unit-detail-content">
+                <div class="unit-button-container">
+                    <button class="btn btn-success" ng-show="unit.Status.Name == 'Available' || unit.Status.Name == 'Available(Reset)' ||  unit.Status.Name == 'Resale'"><i class="fa fa-plus-circle"></i> Book</button>
+                    <button class="btn btn-danger" ng-show="unit.Status.Name == 'Resv+' || unit.Status.Name == 'Resv-' || unit.Status.Name == 'Block'"><i class="fa fa-ban"></i> Cancel</button>
+                    <button class="btn btn-primary" ng-show="unit.Status.Name == 'Sale+' || unit.Status.Name == 'Sale-'"><i class="fa fa-minus-circle"></i> Sell</button>
+                </div>
+                
+                <dl class="dl-horizontal text-left">
+                    <dt class="data-top">Unit detail</dt>
+                    <dd class="data-top">  </dd>
+                    <dt>Unit</dt>
+                    <dd>{{unit.UnitNumber}}</dd>
+                    <dt>Floor</dt>
+                    <dd>{{unit.Floor}}</dd>
+                    <dt>Type</dt>
+                    <dd>{{unit.Type.Name}} ({{unit.SubType.Name}})</dd>
+                    <dt>Size</dt>
+                    <dd>{{unit.Size}} sq.m</dd>
+                    <div ng-repeat="feature in unit.Features">
+                        <dt>{{feature.Type.Name}}</dt>
+                        <dd>{{feature.Value}}</dd>
+                    </div>
+
+                </dl>
+            </div>
+            <div class="unit-detail-medias col-lg-6 col-xs-6">
+                <div>
+                    <img class="img-responsive" src="/directPortal/modules/salesapp/assets/images/resources/{{unit.BuildingId}}/unitplan/{{unit.Type.Shortcode}}_{{unit.SubType.Name}}.jpg" />
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="unit-detail-content">
+                <img src="/directPortal/modules/salesapp/assets/images/resources/{{unit.BuildingId}}/unitplan/{{unit.Type.Shortcode}}_{{unit.SubType.Name}}.jpg" class="img-responsive"/>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="unit-detail-content">
+                <div>
+                    <img src="/directPortal/modules/salesapp/assets/images/resources/{{unit.BuildingId}}/logo/logo.svg" class="img-responsive">
+                </div>
+                <div>
+                    <img class="img-responsive" src="/directPortal/modules/salesapp/assets/images/resources/{{unit.BuildingId}}/floorplan/{{unit.Floor}}.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+
+   
+</div>

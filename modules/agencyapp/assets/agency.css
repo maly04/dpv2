@@ -1,0 +1,163 @@
+.app-login .logo {
+	width: 100px;
+}
+
+.app-login {
+	background: url('images/login-bg.png') no-repeat;
+	background-size: 100% 100%;
+}
+
+.app-agency .app-login .app-body .app-block {
+	background-color: rgba(0,0,0,0);
+}
+
+.app-agency .app-login .app-body .app-block .app-form .form-header {
+	margin-bottom: 4em;
+}
+
+.app-agency .app-login .app-body .app-block .app-form form label {
+	color: #FFF;
+	text-transform: uppercase;
+}
+
+.app-agency .app-login .app-body .app-block .app-form form .input-group {
+	background: #FFF;
+}
+
+aside.app-sidebar .sidebar-header .sidebar-toggle {
+	color: #FFF;
+}
+
+.app-agency .card-title {
+	margin-top: 10px;
+}
+
+aside.app-agency .app-sidebar .sidebar-nav .icon,
+.app.app-purple aside.app-sidebar .sidebar-menu ul.sidebar-nav > li > a .icon,
+.app.app-purple aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.active > a .icon {
+	overflow: hidden;
+	display: block;
+	background-color: unset;
+}
+
+.app-agency .custom-icon {
+   	width: 50px;
+    height: 50px;
+    background: url(images/sprite.png) no-repeat;
+    display: block;
+    background-position: 11px 0px;
+    background-size: cover;
+    margin-top: 5px;
+}
+
+.app-agency i.custom-icon.home {
+    background-position: -39px -1px;
+    margin-left: 4px;
+    width: 48px;
+    height: 49px;
+}
+
+.app-agency i.custom-icon.mail {
+	background-position: -90px 0;
+    margin-left: 2px;
+	width: 54px;
+	height: 50px;
+}
+
+.app-agency i.custom-icon.members {
+    margin-left: 6px;
+    width: 48px;
+    height: 49px;
+    background-position: -141px 0px;
+}
+
+.app-agency .report-intro {
+    margin: 0 0 30px 20px;
+    line-height: 1.80;
+}
+
+.target-container {
+	margin-bottom: 20px;
+}
+
+.target-box {
+	border-top: 1px solid;
+	border-right: 1px solid;
+	color: #333;
+}
+
+.target-box:last-child {
+	border-right: none;
+}
+
+.target-box:last-child::after {
+	content: '>';
+	position: absolute;
+	top: -15px;
+	right: 0;
+	font-size: 20px;
+}
+
+.target-box h4 {
+	margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.target-breakdown {
+	margin-bottom: 15px;
+}
+
+.target-box:hover,
+.target-box:active,
+.target-box:focus {
+	background-color: #f8eb7d;
+	cursor: pointer;
+	text-decoration: none;
+	color: #333;
+}
+
+.target-box.active {
+	background-color: #f5dc0b;
+}
+
+.app-agency .unit-sold {
+	border-bottom: 2px solid #FF0000;
+	border-left: 2px solid #FF0000;
+}
+
+.app-agency .thumbnail-circle,
+.app-agency .thumbnail-circle img {
+	border-radius: 50%;
+}
+
+.app-agency .project-detail {
+	margin: 10px 0 20px 0;
+}
+
+.app-agency .project-detail .dl-horizontal dt {
+	text-align: left;
+	width: auto;
+	margin-right: 10px;
+}
+
+.app-agency .project-detail .dl-horizontal dd {
+    margin-left: auto;
+}
+
+.app-agency .profile-img img {
+	display: inline-block;
+}
+
+@media(max-width: 767px) {
+	aside.app-agency .app-sidebar .sidebar-nav .icon, 
+	.app.app-purple aside.app-sidebar .sidebar-menu ul.sidebar-nav > li > a .icon, 
+	.app.app-purple aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.active > a .icon {
+		overflow: visible;
+		display: block;
+		margin: 0 20px 10px 0px;
+	}
+	.report-intro {
+		font-size: 18px;
+
+	}
+}

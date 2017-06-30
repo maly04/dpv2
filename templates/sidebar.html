@@ -1,0 +1,236 @@
+﻿<!-- Sidebar
+    ================================================== -->
+
+<div id="sidebar" class="navbar collapse in">
+    <ul class="nav">
+        <li><a ui-sref="app.earlyadopter"><i class="fa fa-file-image-o"></i>Early Adopter</a></li>
+        <li><a ui-sref="app.subscribers"><i class="fa fa-file-image-o"></i>Subscribers</a></li>
+        <li><a ui-sref="app.contact"><i class="fa fa-phone"></i> Import</a></li>
+        <li><a ui-sref="app.phonebook"><i class="fa fa-phone"></i> Phonebook</a></li>
+        <li ng-if="user.Type.Name == 'CEO'"><a ui-sref="app.dashboard.index"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li><a ui-sref="app.pricelist"><i class="fa fa-dollar"></i> Price List</a></li>
+        <li><a ui-sref="app.presentation.projectmap"><i class="fa fa-map"></i> Projects Map</a></li>
+        <li class="has-sub">
+            <a href="#" data-toggle="dropdown"><i class="fa fa-desktop"></i> Presentation</a>
+            <ul class="dropdown-menu">
+                <li><a ui-sref="app.presentation.create">Create Presentation</a></li>
+                <li><a ui-sref="app.presentation.devices">Connected device</a></li>
+                <li><a href="#">Presentation items categories</a></li>
+                <li><a ui-sref="app.presentation.tv">TV page</a></li>
+            </ul>
+        </li>
+        <li class="has-sub">
+            <a href="#" data-toggle="dropdown"><i class="fa fa-bank"></i> Accounting</a>
+            <ul class="dropdown-menu">
+                <li><a ui-sref="app.accounting.report">Account Report</a></li>
+            </ul>
+        </li>
+        <li class="has-sub">
+            <a href="#" data-toggle="dropdown"><i class="fa fa-building"></i> Buildings Mgmt.</a>
+            <ul class="dropdown-menu">
+                <li><a ui-sref="app.datamanagement.complex.list">Complexes</a></li>
+                <li><a ui-sref="app.datamanagement.building.list">Buildings</a></li>
+                <li><a ui-sref="app.datamanagement.unit.list">Units</a></li>
+                <li><a ui-sref="app.datamanagement.unittype.list">Unit Types</a></li>
+                <li><a ui-sref="app.datamanagement.unitsubtype.list">Unit Sub-Types</a></li>
+            </ul>
+        </li>
+        <li><a ui-sref="app.marketingmaterial.index"><i class="fa fa-file-image-o"></i> Marketing Material</a></li>
+
+
+        <li class="has-sub">
+            <a href="#" data-toggle="dropdown"><i class="fa fa-ticket"></i>Reservations</a>
+            <ul class="dropdown-menu">
+                <li><a ui-sref="app.reservation.create">Create (Pre)Reservation</a></li>
+                <li><a ui-sref="app.reservation.active">View Active Reservation</a></li>
+                <li><a ui-sref="app.reservation.all">View All Reservation</a></li>
+            </ul>
+        </li>
+        <li>
+            <a ui-sref="app.authoring.tool"><i class="fa fa-th-large" aria-hidden="true"></i>Authoring Tool</a>
+        </li>
+        <li>
+            <a ui-sref="app.floorplanner"><i class="fa fa-building" aria-hidden="true"></i>Floor Planner</a>
+        </li>
+        <li class="has-sub">
+            <a href="#" data-toggle="dropdown"><i class="fa fa-gift"></i>Demo</a>
+            <ul class="dropdown-menu">
+                <li><a ui-sref="app.development.orgchart">Org Chart</a></li>
+                <li><a ui-sref="app.development.timeline">Timeline</a></li>
+                <li><a ui-sref="app.development.svgicons">SVG Tree</a></li>
+                <li><a ui-sref="app.development.planogram">Planogram</a></li>
+                <li><a ui-sref="app.development.interaction">Interaction</a></li>
+            </ul>
+        </li>
+        <li class="has-sub" ng-class="{active:$state.includes('app.datamanagement')}">
+            <a href="#" data-toggle="dropdown"><i class="fa fa-database"></i> Data Management</a>
+            <!--<ul class="dropdown-menu">
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.approval.list">View all Approval</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.approval.create">Create Approval</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.building.list">View all Building</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.building.create">Create Building</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.buildingphase.list">View all Building Phase</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.buildingphase.create">Create Building Phase</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.buildingstatus.list">View all Building Status</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.buildingstatus.create">Create Building Status</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.buildingstatustype.list">View all Building Status Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.buildingstatustype.create">Create Building Status Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.calendarevent.list">View all Calendar Event</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.calendarevent.create">Create Calendar Event</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.complex.list">View all Complex</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.complex.create">Create Complex</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.configuration.list">View all Configuration</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.configuration.create">Create Configuration</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.contactaddress.list">View all Contact Address</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.contactaddress.create">Create Contact Address</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.contactaddresstype.list">View all Contact Address Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.contactaddresstype.create">Create Contact Address Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.contactdetail.list">View all Contact Detail</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.contactdetail.create">Create Contact Detail</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.contactdetailtype.list">View all Contact Detail Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.contactdetailtype.create">Create Contact Detail Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.contract.list">View all Contract</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.contract.create">Create Contract</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.contractdetail.list">View all Contract Detail</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.contractdetail.create">Create Contract Detail</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.contractdetailtype.list">View all Contract Detail Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.contractdetailtype.create">Create Contract Detail Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.country.list">View all Country</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.country.create">Create Country</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.developer.list">View all Developer</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.developer.create">Create Developer</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.document.list">View all Document</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.document.create">Create Document</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.documenttype.list">View all Document Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.documenttype.create">Create Document Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.entity.list">View all Entity</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.entity.create">Create Entity</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.entityproperty.list">View all Entity Property</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.entityproperty.create">Create Entity Property</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.entitytype.list">View all Entity Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.entitytype.create">Create Entity Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.feature.list">View all Feature</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.feature.create">Create Feature</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.featuretype.list">View all Feature Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.featuretype.create">Create Feature Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.floorplan.list">View all Floor Plan</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.floorplan.create">Create Floor Plan</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.language.list">View all Language</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.language.create">Create Language</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.marketingmaterial.list">View all Marketing Material</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.marketingmaterial.create">Create Marketing Material</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.marketingmaterialtype.list">View all Marketing Material Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.marketingmaterialtype.create">Create Marketing Material Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.message.list">View all Message</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.message.create">Create Message</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.nationality.list">View all Nationality</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.nationality.create">Create Nationality</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.note.list">View all Note</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.note.create">Create Note</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.notification.list">View all Notification</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.notification.create">Create Notification</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.organizationunit.list">View all Organization Unit</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.organizationunit.create">Create Organization Unit</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.organizationunitstatus.list">View all Organization Unit Status</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.organizationunitstatus.create">Create Organization Unit Status</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.organizationunittype.list">View all Organization Unit Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.organizationunittype.create">Create Organization Unit Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.ownershiptype.list">View all Ownership Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.ownershiptype.create">Create Ownership Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.payment.list">View all Payment</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.payment.create">Create Payment</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.paymentmethod.list">View all Payment Method</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.paymentmethod.create">Create Payment Method</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.paymentpart.list">View all Payment Part</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.paymentpart.create">Create Payment Part</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.paymenttype.list">View all Payment Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.paymenttype.create">Create Payment Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.performanceindicator.list">View all Performance Indicator</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.performanceindicator.create">Create Performance Indicator</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.performanceindicatortype.list">View all Performance Indicator Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.performanceindicatortype.create">Create Performance Indicator Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.permission.list">View all Permission</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.permission.create">Create Permission</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.person.list">View all Person</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.person.create">Create Person</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.personprefix.list">View all Person Prefix</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.personprefix.create">Create Person Prefix</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.persontype.list">View all Person Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.persontype.create">Create Person Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.post.list">View all Post</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.post.create">Create Post</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.posttype.list">View all Post Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.posttype.create">Create Post Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.presentation.list">View all Presentation</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.presentation.create">Create Presentation</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.presentationstage.list">View all Presentation Stage</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.presentationstage.create">Create Presentation Stage</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.price.list">View all Price</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.price.create">Create Price</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.pricetype.list">View all Price Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.pricetype.create">Create Price Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.process.list">View all Process</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.process.create">Create Process</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.query.list">View all Query</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.query.create">Create Query</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.quota.list">View all Quota</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.quota.create">Create Quota</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.relationship.list">View all Relationship</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.relationship.create">Create Relationship</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.relationshiptype.list">View all Relationship Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.relationshiptype.create">Create Relationship Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.report.list">View all Report</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.report.create">Create Report</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.reservation.list">View all Reservation</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.reservation.create">Create Reservation</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.reservationstatus.list">View all Reservation Status</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.reservationstatus.create">Create Reservation Status</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.reservationtype.list">View all Reservation Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.reservationtype.create">Create Reservation Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.rule.list">View all Rule</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.rule.create">Create Rule</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.sale.list">View all Sale</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.sale.create">Create Sale</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.salesrequest.list">View all Sales Request</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.salesrequest.create">Create Sales Request</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.salesrequesttype.list">View all Sales Request Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.salesrequesttype.create">Create Sales Request Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.salestatus.list">View all Sale Status</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.salestatus.create">Create Sale Status</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.salestatustype.list">View all Sale Status Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.salestatustype.create">Create Sale Status Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.subscription.list">View all Subscription</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.subscription.create">Create Subscription</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.task.list">View all Task</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.task.create">Create Task</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.template.list">View all Template</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.template.create">Create Template</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.translation.list">View all Translation</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.translation.create">Create Translation</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.unit.list">View all Unit</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.unit.create">Create Unit</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.unitquota.list">View all Unit Quota</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.unitquota.create">Create Unit Quota</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.unitstatus.list">View all Unit Status</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.unitstatus.create">Create Unit Status</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.unitsubtype.list">View all Unit Sub Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.unitsubtype.create">Create Unit Sub Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.unittype.list">View all Unit Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.unittype.create">Create Unit Type</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.webpage.list">View all Web Page</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.datamanagement.webpage.create">Create Web Page</a></li>
+            </ul>-->
+        </li>
+        <li class="has-sub">
+            <a href="#" data-toggle="dropdown"><i class="fa fa-users"></i> User Management</a>
+            <ul class="dropdown-menu">
+                <li><a ui-sref="app.users.list">All Users</a></li>
+                <li><a ui-sref="app.users.create">Create User</a></li>
+                <li><a ui-sref="app.datamanagement.persontype.list">Roles</a></li>
+            </ul>
+        </li>
+        <li><a ui-sref="app.import.start"><i class="fa fa-upload"></i> Import</a></li>
+        <li><a ui-sref="app.userinterface"><i class="fa fa-paint-brush"></i> User Inteface</a></li>
+
+    </ul>
+</div><!-- end #sidebar -->

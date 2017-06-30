@@ -1,0 +1,70 @@
+﻿.nopadding {
+    padding-left:0px;
+    padding-right:0px;
+}
+.icon-svg {
+    top: 3px;
+    position: absolute;
+    right: 5px;
+}
+.custom-text-box-mini {
+    background: rgba(0,0,0, 0.2) !important;
+    border-radius: 4px !important;
+    border: 1px solid #323232 !important;
+    width: 100%;
+    padding: 0px 5px;
+}
+.dp-fix-height, #map {
+    height: 137px;
+}
+.nopaddingleft {
+    padding-left:0px;
+}
+.nopaddingright {
+    padding-right:0px;
+}
+.set-margin-bottom {
+    margin-bottom:9px;
+}
+.widget-set-margin-bottom {
+    margin-bottom:15px;
+}
+.svg {
+    top: 4px;
+    position: absolute;
+    right: 5px;
+}
+.custom-svg {
+    top: 3px !important;
+}
+
+.icon-svg {
+    top: 3px;
+    position: absolute;
+    right: 5px;
+}
+.custom-padding-left {
+    padding-left: 3px;
+}
+.statistic-graph {
+    height:100px;
+}
+#interactive-chart {
+    width: 100%;
+    height: 100px;
+}
+
+#pie {
+    width: 100%;
+    height: 400px;
+}
+
+#barmonth {
+    width: 100%;
+    height: 400px;
+}
+
+#baryear {
+    width: 100%;
+    height: 400px;
+}

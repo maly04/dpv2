@@ -1,0 +1,13 @@
+<h1 class="page-title visible-lg">Person</h1>
+<div class="row">
+    <div class="col-lg-12 widget data-management-tool">
+        <dp-widget>
+            <dp-table-manage dp-entity="Person"
+                             dp-edit-state="app.person.edit"
+                             dp-fields="ID,Name,Description,Color,Active">
+            </dp-table-manage>
+            <a ui-sref="app.datamanagement.person.create" class="btn btn-sm btn-success">Create</a>
+        </dp-widget>
+    </div>
+</div>
+

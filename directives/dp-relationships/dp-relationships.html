@@ -1,0 +1,11 @@
+﻿<div ng-if="action == 'view'">
+    <table class="table">
+        <tr ng-repeat="relationship in relationships">
+            <td>{{relationship.Type.Name}}</td>
+            <td>{{relationship.TargetId}}</td>
+        </tr>
+    </table>
+</div>
+<div ng-if="action == 'edit'">
+    <!-- put repeating section with contactdetailtype and contactdetail.value -->
+</div>

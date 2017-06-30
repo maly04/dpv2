@@ -1,0 +1,55 @@
+﻿<h1 class="page-title">Create Unit</h1>
+<div class="widget">
+    <div class="row">
+        <div class="col-xs-12 col-lg-4">
+            <!--<pre>
+                {{unit | json}}
+            </pre>-->
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input ng-model="unit.name" type="text" class="form-control" id="name">
+                </div>
+                <div class="form-group">
+                    <label for="complex">Complex</label>
+                    <select ng-model="activeComplexId" ng-change="changeActiveComplex()" id="complex" class="form-control" placeholder="Please Select">
+                        <option value="0">select</option>
+                        <option ng-repeat="complex in complexes" value="{{complex.ID}}">{{complex.Name}}</option>
+                    </select>
+                </div>
+                <div ng-if="activeComplex" class="form-group">
+                    <label for="building">Building</label>
+                    <select ng-model="unit.buildingId" id="building" class="form-control">
+                        <option ng-repeat="building in activeComplex.Buildings" value="{{building.ID}}">{{building.Name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="number">number</label>
+                    <input ng-model="unit.number" type="number" class="form-control" id="number" min="0" />
+                </div>
+                <div class="form-group">
+                    <label for="floor">Floor</label>
+                    <input ng-model="unit.floor" type="number" class="form-control" id="floor" min="0" />
+                </div>
+                <div class="form-group">
+                    <label for="size">size</label>
+                    <input ng-model="unit.size" type="number" class="form-control" id="size" min="0" />
+                </div>
+                <div class="form-group">
+                    <label for="type">Type</label>
+                    <select ng-model="unit.typeId" id="type" class="form-control">
+                        <option ng-repeat="type in types" value="{{type.id}}">{{type.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="subtype">Sub Type</label>
+                    <select ng-model="unit.subTypeId" id="subtype" class="form-control">
+                        <option ng-repeat="subType in subTypes" value="{{subType.id}}">{{subType.name}}</option>
+                    </select>
+                </div>
+                <input type="button" value="submit" class="btn btn-default btn-sm" ng-click="submit()" />
+            </form>
+
+        </div>
+    </div>
+</div>

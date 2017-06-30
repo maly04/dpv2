@@ -1,0 +1,120 @@
+﻿<div class="row">
+   
+    <div class="form-group">
+        <label>Rating:</label>
+        <select toggle-button ng-model="selectedStar">
+            <option value="{{star}}" ng-repeat="star in stars">{{star}}</option>
+        </select>
+    </div>
+
+    <div class="form-group"">
+        <label>Customer Name:</label>
+        <input type="text" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Title:</label>
+        <br>
+        <select toggle-button>
+            <option ng-repeat="personTitle in personTitles">{{personTitle}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Purpose of Buying:</label>
+        <br>
+        <select toggle-button>
+            <option ng-repeat="purposeOfBuying in purposeOfBuyings">{{purposeOfBuying}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Interests:</label>
+        <br>
+        <select toggle-button>
+            <option ng-repeat="interest in interests">{{interest}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Unit Types:</label>
+        <br>
+        <select toggle-button>
+            <option ng-repeat="unitType in unitTypes">{{unitType}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>New or Returning Customer:</label>
+        <br>
+        <select toggle-button>
+            <option ng-repeat="customerType in customerTypes">{{customerType}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Country:</label>
+        <br>
+        <select toggle-button>
+            <option ng-repeat="country in countries">{{country}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Customer met Management yet:</label>
+        <br>
+        <select toggle-button>
+            <option ng-repeat="customerMetManagementYetOption in customerMetManagementYet">{{customerMetManagementYetOption}}</option>
+        </select>
+    </div>
+
+
+    <div class="form-group">
+        <label>Quota:</label>
+        <br>
+        <select toggle-button>
+            <option ng-repeat="quota in quotas">{{quota}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Budget Range:</label>
+        <br>
+        <select toggle-button>
+            <option ng-repeat="budgetRangeOption in budgetRange">{{budgetRangeOption}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Unit Requirements:</label>
+        <br>
+        <select toggle-button>
+            <option ng-repeat="unitRequirement in unitRequirements">{{unitRequirement}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Personality:</label>
+        <br>
+        <select toggle-button>
+            <option ng-repeat="personality in personalities">{{personality}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Walk In Location:</label>
+        <br>
+        <select toggle-button>
+            <option ng-repeat="walkInLocation in walkInLocations">{{walkInLocation}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Any current Property:</label>
+        <br>
+        <select toggle-button>
+            <option ng-repeat="currentProperty in currentProperties">{{currentProperty}}</option>
+        </select>
+    </div>
+
+</div>
+

@@ -1,0 +1,96 @@
+/*@media print {*/
+	h1,h2,h3,h4,h5,h6 {
+		margin: 10px 0;
+		padding: 0;
+	}
+	/* Remove unwanted elements */
+	#header, #nav, .noprint
+	{
+		display: none;
+	}
+	/* Improve colour contrast of links */
+	a:link, a:visited
+	{
+		color: #781351
+	}
+	.logo {
+		width: 15%;
+	    text-align: left;
+	    display: inline-block;
+	    vertical-align: text-bottom;
+	}
+	.document-title {
+		width: 65%;
+		text-align: center;
+		display: inline-block;
+	}
+	.doc-reference {
+		width: 15%;
+		text-align: right;
+		display: inline-block;
+	}
+	.sale-date {
+		width: 100%;
+		display: inline-block;
+	}
+	.sales-person {
+	    text-align: left;
+	    width: 48%;
+	    display: inline-block;
+	}
+	.issue-date {
+	    text-align: right;
+	    width: 48%;
+	    display: inline-block;
+	}
+	table {
+		border-collapse: collapse;
+	}
+	table {
+		border: 1px solid #000;
+		width: 100%;
+		margin: 0 auto;
+	}
+	td {
+		padding: 5px;
+		border: 1px solid #000;
+	}
+	td.no-border {
+		border-left: 1px solid transparent;
+		border-bottom: 1px solid transparent;
+	}
+	td.no-border-left {
+		border-left: 1px solid transparent;
+	}
+	td.no-border-right {
+		border-right: 1px solid transparent;
+	}
+	.table-no-border-top td {
+		border: 1px solid transparent;
+	}
+	.table-no-border-top tr {
+	    border-bottom: 1px;
+	    border-color: #000;
+	    border-bottom-style: double;
+	}
+	.signature-section {
+		display: block;
+		margin-top: 15px;
+	}
+	.left {
+		float: left;
+	}
+	.right {
+		float: right;
+	}
+	.box {
+		border: 1px solid black; 
+		min-height: 1cm; 
+		padding: 10px;
+		margin-bottom: 25px;
+	}
+	.signature {
+		margin-bottom: 0.5cm;
+	}
+/*}
+*/

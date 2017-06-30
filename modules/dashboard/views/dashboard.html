@@ -1,0 +1,197 @@
+﻿<div class="cotainer-fluid">
+    <h5 class="page-title">Dashboard</h5>
+    <div class="dashboard-content">
+        <div class="unit-matrix-container">
+            <div class="row">
+                <div class="widget">
+                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 table-container" ng-repeat="building in buildings">
+                        <table class="table dashboard-table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th colspan="5" class="dashboard-img-heading">
+                                        <div class="dashboard-img dashboad-img-align">
+                                            <a ui-sref="app.matrix.minibuildingmatrix({id:building.ID})">
+                                                <img src="/directPortal/modules/salesapp/assets/images/resources/{{building.ID}}/logo/logo.svg" class="img-responsive">
+                                            </a>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td ng-if="building.ID === 1" class="dashboard-head"></td>
+                                    <td ng-if="building.ID === 1" class="dashboard-head"></td>
+                                    <td class="dashboard-head">Units</td>
+                                    <td class="dashboard-head">sq.m</td>
+                                    <td class="dashboard-head">%</td>
+                                </tr>
+                                <tr>
+                                    <td ng-if="building.ID === 1" rowspan="3" class="column-available">
+                                        <div class="dashboard-title">Available</div>
+                                    </td>
+                                    <td ng-if="building.ID === 1">Total</td>
+                                    <td>12</td>
+                                    <td>1122</td>
+                                    <td class="dashboard-table-column-border-white">23</td>
+                                </tr>
+                                <tr>
+                                    <td ng-if="building.ID === 1">Foreign</td>
+                                    <td>12</td>
+                                    <td>1122</td>
+                                    <td class="dashboard-table-column-border-white">23</td>
+                                </tr>
+                                <tr>
+                                    <td ng-if="building.ID === 1">Thai</td>
+                                    <td>12</td>
+                                    <td>1122</td>
+                                    <td class="dashboard-table-column-border-white">23</td>
+                                </tr>
+                                <!--Available+block-->
+                                <tr>
+                                    <td ng-if="building.ID === 1" rowspan="3" class="column-available-block">
+                                        <div class="dashboard-title">Avail.+Block</div>
+                                    </td>
+                                    <td ng-if="building.ID === 1">Foreign</td>
+                                    <td>12</td>
+                                    <td>1122</td>
+                                    <td class="dashboard-table-column-border-green">23</td>
+                                </tr>
+                                <tr>
+                                    <td ng-if="building.ID === 1">Foreign</td>
+                                    <td>12</td>
+                                    <td>1122</td>
+                                    <td class="dashboard-table-column-border-green">23</td>
+                                </tr>
+                                <tr>
+                                    <td ng-if="building.ID === 1">Foreign</td>
+                                    <td>12</td>
+                                    <td>1122</td>
+                                    <td class="dashboard-table-column-border-green">23</td>
+                                </tr>
+                                <!--sold-->
+                                <tr>
+                                    <td ng-if="building.ID === 1" rowspan="3" class="column-sold">
+                                        <div class="dashboard-title">Sold</div>
+                                    </td>
+                                    <td ng-if="building.ID === 1">Total</td>
+                                    <td>12</td>
+                                    <td>1122</td>
+                                    <td class="dashboard-table-column-border-yellow">23</td>
+                                </tr>
+                                <tr>
+                                    <td ng-if="building.ID === 1">Foreign</td>
+                                    <td>12</td>
+                                    <td>1122</td>
+                                    <td class="dashboard-table-column-border-yellow">23</td>
+                                </tr>
+                                <tr>
+                                    <td ng-if="building.ID === 1">Thai</td>
+                                    <td>12</td>
+                                    <td>1122</td>
+                                    <td class="dashboard-table-column-border-yellow">23</td>
+                                </tr>
+                                <!--Reserved-->
+                                <tr>
+                                    <td ng-if="building.ID === 1" rowspan="3" class="column-reserved">
+                                        <div class="dashboard-title">Reserved</div>
+                                    </td>
+                                    <td ng-if="building.ID === 1">Total</td>
+                                    <td>12</td>
+                                    <td>1122</td>
+                                    <td class="dashboard-table-column-border-reserved">23</td>
+                                </tr>
+                                <tr>
+                                    <td ng-if="building.ID === 1">Foreign</td>
+                                    <td>12</td>
+                                    <td>1122</td>
+                                    <td class="dashboard-table-column-border-reserved">23</td>
+                                </tr>
+                                <tr>
+                                    <td ng-if="building.ID === 1">Thai</td>
+                                    <td>12</td>
+                                    <td>1122</td>
+                                    <td class="dashboard-table-column-border-reserved">23</td>
+                                </tr>
+                                <!--Bocked-->
+                                <tr>
+                                    <td ng-if="building.ID === 1" rowspan="3" class="column-blocked">
+                                        <div class="dashboard-title">Bocked</div>
+                                    </td>
+                                    <td ng-if="building.ID === 1">Total</td>
+                                    <td>12</td>
+                                    <td>1122</td>
+                                    <td class="dashboard-table-column-border-blocked">23</td>
+                                </tr>
+                                <tr>
+                                    <td ng-if="building.ID === 1">Foreign</td>
+                                    <td>12</td>
+                                    <td>1122</td>
+                                    <td class="dashboard-table-column-border-blocked">23</td>
+                                </tr>
+                                <tr>
+                                    <td ng-if="building.ID === 1">Thai</td>
+                                    <td>12</td>
+                                    <td>1122</td>
+                                    <td class="dashboard-table-column-border-blocked">23</td>
+                                </tr>
+                                <!--Resale-->
+                                <tr>
+                                    <td ng-if="building.ID === 1" rowspan="3" class="column-resale">
+                                        <div class="dashboard-title">Resale</div>
+                                    </td>
+                                    <td ng-if="building.ID === 1">Total</td>
+                                    <td>12</td>
+                                    <td>1122</td>
+                                    <td class="dashboard-table-column-border-resale">23</td>
+                                </tr>
+                                <tr>
+                                    <td ng-if="building.ID === 1">Foreign</td>
+                                    <td>12</td>
+                                    <td>1122</td>
+                                    <td class="dashboard-table-column-border-resale">23</td>
+                                </tr>
+                                <tr>
+                                    <td ng-if="building.ID === 1">Thai</td>
+                                    <td>12</td>
+                                    <td>1122</td>
+                                    <td class="dashboard-table-column-border-resale">23</td>
+                                </tr>
+                                <!--Total-->
+                                <tr>
+                                    <td ng-if="building.ID === 1" rowspan="3" class="column-total">
+                                        <div class="dashboard-title">Total</div>
+                                    </td>
+                                    <td ng-if="building.ID === 1">Total</td>
+                                    <td>12</td>
+                                    <td>1122</td>
+                                    <td class="dashboard-table-column-border-total">23</td>
+                                </tr>
+                                <tr>
+                                    <td ng-if="building.ID === 1">Foreign</td>
+                                    <td>12</td>
+                                    <td>1122</td>
+                                    <td class="dashboard-table-column-border-total">23</td>
+                                </tr>
+                                <tr>
+                                    <td ng-if="building.ID === 1">Thai</td>
+                                    <td>12</td>
+                                    <td>1122</td>
+                                    <td class="dashboard-table-column-border-total">23</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table table-bordered table-responsive table-matrix">
+
+                                <tbody ng-repeat="floor in query[$index].slice().reverse()">
+                                    <tr ng-repeat="unitBlock in floor">
+                                        <td ng-repeat="unit in unitBlock" ng-click="goToUnit(unit)" style="background-color:{{unit.Status.Color}};" data-toggle="tooltip" title="Unit: {{unit.UnitNumber}} ({{unit.Status.Name}})"></td>
+                                    </tr>
+                                </tbody>
+                     
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

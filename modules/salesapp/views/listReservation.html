@@ -1,0 +1,35 @@
+﻿<div class="row">
+    <div class="container-fluid">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h2>All Reservations</h2>
+        </div>
+        
+    </div>
+    
+</div>
+
+<div class="row">
+    <div class="container-fluid">
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="reservation in reservations.reverse()">
+            <a class="card card-banner card-green-light single-reservation">
+                <div class="card-body">
+                    <div class="content pull-left">
+                        <div class="title">{{reservation.Unit.Building.Name}} {{reservation.Unit.UnitNumber}}</div>
+                        <div class="title">{{reservation.SalesPerson.Name}}/{{reservation.Agency.Name}}</div>
+                        <div class="title">{{reservation.DateOfReservation}}</div>
+                        <div class="value"><strong>{{reservation.Status.Name}}</strong></div>
+                    </div>
+                    <i class="icon fa fa-check-square-o fa-4x pull-right"></i>
+                </div>
+            </a>
+        </div>
+        
+    </div>
+    
+ </div>
+
+<style>
+    .single-reservation {
+        margin-bottom: 20px;
+    }
+</style>

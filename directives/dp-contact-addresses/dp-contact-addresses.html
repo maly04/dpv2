@@ -1,0 +1,84 @@
+﻿<div ng-if="action == 'view'">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Addresses</th>
+                <th>SubDistrict</th>
+                <th>District</th>
+                <th>City</th>
+                <th>State</th>
+                <th>ZIPCode</th>
+                <th>Country</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr ng-repeat="addr in getcontactaddresses" ng-if="addr.Address != ''">
+                <td>{{addr.Address}}</td>
+                <td>{{addr.SubDistrict}}</td>
+                <td>{{addr.District}}</td>
+                <td>{{addr.City}}</td>
+                <td>{{addr.State}}</td>
+                <td>{{addr.ZIPCode}}</td>
+                <td>{{addr.Country}}</td>
+                <td>{{contactAddressesTypeNames[addr.TypeId-1]}}</td>
+            </tr>
+        </tbody>        
+    </table>
+</div>
+<div ng-if="action == 'edit'" class="form-group">
+    <form class="form-horizontal ng-pristine ng-valid">
+        <div class="form-group" data-ng-repeat="addr in contactAddresses">
+            <div class="col-xs-1"><label class="control-label">Contact Addresses</label></div>
+            <div class="col-xs-3">
+                <select class="form-control" ng-model="addr.TypeId">
+                    <option ng-repeat="addressesType in contactAddressesType" value="{{addressesType.ID}}" ng-if="addressesType.Name != ''">{{addressesType.Name}}</option>
+                </select>
+            </div>            
+            <div class="col-xs-4">
+                <input type="text" class="form-control" ng-model="addr.District" placeholder="District"/>
+            </div>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" ng-model="addr.SubDistrict" placeholder="SubDistrict" />
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" ng-model="addr.City"  placeholder="City"/>
+            </div>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" ng-model="addr.State" placeholder="State" />
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" ng-model="addr.ZIPCode" placeholder="ZIPCode"/>
+            </div>
+            <div class="col-xs-4">
+                <!--<input type="text" class="form-control" ng-model="addr.Country" placeholder="Country"/>-->
+                <!--<select class="form-control" ng-model="addr.Country">
+                    <option ng-repeat="country in countries" value="country.ID">{{country.Name}}</option>
+                </select>-->
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-xs-4"></div>
+            <!--<div class="col-xs-1">
+                <input type="text" class="form-control" ng-model="addr.Country" placeholder=""/>
+            </div>-->
+            <div class="col-xs-4">
+                <input type="text" class="form-control" ng-model="addr.Address" placeholder="Address"/>
+            </div>
+           
+            <div class="col-xs-4">
+                <a class="remove btn btn-default" ng-show="$last" ng-click="removeContact()" ng-hide="remove" ng-if="$last">-</a>
+                <a class="btn btn-default" ng-show="$first" ng-click="addMoreContactDetails()"><i class="fa fa-plus"></i></a>
+            </div>
+        </div>
+        <!--End ng-repeat-->
+        <div class="col-xs-5">
+            <button class="btn btn-default" ng-click="submit()" type="submit">Submit</button>
+        </div>
+        <div class="clearfix"></div>
+    </form>
+</div>

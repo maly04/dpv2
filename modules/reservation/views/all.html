@@ -1,0 +1,86 @@
+﻿<div class="view-all-reservation">
+    <h1 class="page-title">
+        All Reservations
+    </h1>
+    <div class="widget">
+        <div class="row">
+            <div class="filter-reservation">
+                <div class="search-reservation">
+                    <label>General Search:</label>
+                    <input type="text" id="dp-search-box" />
+                </div>
+
+                <div class="filter-link btn-group-sm">
+                    <a class="btn btn-sm btn-default" ng-click="toggleColumn(7)">Hide/show buyer info</a>
+                    <a class="btn btn-sm btn-default" ng-click="toogleRows('canceled')">Hide/show Canceled</a>
+                    <a class="btn btn-sm btn-default" ng-click="toogleRows('oldCancelNoAgency')">Hide/show old Canceled and No Agency (< 3 days)</a>
+                </div>
+                <div class="pre-age">
+                    <span>preAge:</span>
+                    <input ng-model="preageFrom" ng-change="updateTable()" type="number" placeholder="from" />
+                    <input ng-model="preageTo" ng-change="updateTable()" type="number" placeholder="to" />
+                </div>
+                <div class="date-filter">
+                    <span>update:</span>
+                    <input ng-model="updateFrom" ng-change="updateTable()" type="number" placeholder="from" />
+                    <input ng-model="updateTo" ng-change="updateTable()" type="number" placeholder="to" />
+                </div>
+            </div>
+            <div id="data-table_wrapper" class="col-md-12 table-responsive dataTables_wrapper dt-bootstrap">
+                <table id="all-reservation" class="table-hover">
+                    <thead>
+                        <tr>
+                            <td>UID</td>
+                            <td>Building</td>
+                            <td>Unit</td>
+                            <td>Sales</td>
+                            <td>Agency</td>
+                            <td>Buyer</td>
+                            <td>Nationality</td>
+                            <td>%</td>
+                            <td>PreAge</td>
+                            <td>Update</td>
+                            <td>Scan contract</td>
+                            <td>Updated By</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="reservation in reservations" data-status="{{reservation.Status.Name}}">
+
+                            <td>{{reservation.Name}}</td>
+                            <td>{{reservation.Building}}</td>
+                            <td>{{reservation.Unit}}</td>
+                            <td>{{reservation.SalesPersonID}}</td>
+                            <td>{{reservation.AgencyID}}</td>
+                            <td>{{reservation.BuyerID}}</td>
+                            <td>{{reservation.Nationality}}</td>
+                            <td>{{reservation.Transferpercentage}}</td>
+                            <td>{{reservation.PreAge}}</td>
+                            <td>{{reservation.Update}}</td>
+                            <td><a href="#" class="btn btn-sm btn-default">View Contract</a></td>
+                            <td>{{reservation.UpdatedBy}}</td>
+
+
+                            <!--<td>{{reservation.ID}}</td>
+                            <td>{{reservation.Unit.Building.Name}}</td>
+                            <td>{{reservation.Unit.Name}}</td>
+                            <td>{{reservation.Sale.Name}}</td>
+                            <td>{{reservation.Agency}}</td>
+                            <td>{{reservation.Buyer}}</td>
+                            <td>{{reservation.Buyer.Nationality}}</td>
+                            <td>{{reservation.TransferPercentage}}</td>
+                            <td>{{reservation.PreAge}}</td>
+                            <td>{{reservation.UpdatedAt}}</td>
+                            <td><a href="#" class="btn btn-sm btn-default">View Contract</a></td>
+                            <td>{{reservation.UpdatedBy.Name}}</td>-->
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

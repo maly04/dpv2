@@ -1,0 +1,33 @@
+﻿<h1 class="page-title visible-lg">Import</h1>
+<div class="row">
+    <div class="widget">
+        <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+            <form method="post" enctype="multipart/form-data" action="http://localhost:5000/api/modules/import/ImportUnits">
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <p>Upload one or more Unit Import Files: </p>
+                        <input type="file" id="files"
+                               name="files" multiple class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input type="submit" class="btn btn-success" value="Upload" />
+                        <a class="btn btn-primary" href="{{downloadSampleFile}}">Download Sample Unit Import Files here</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="widget" ng-if="isLoading">
+        <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+            <h3>Please wait whilst the Import completes. The status will be displayed here when the Import has finished.</h3>
+        </div>
+    </div>
+    <div class="widget" ng-if="isFinished">
+        <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+            <h3>Results</h3>
+            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,1 @@
+﻿directPortalApp.controller("documentController", function ($scope) { });

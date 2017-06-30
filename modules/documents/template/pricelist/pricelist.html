@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Price List</title>
+    <link rel="stylesheet" type="text/css" href="stutest.css" media="all">
+</head>
+<body>
+    <div class="content">
+        <div ng-repeat="floor in queryunits | reverse" class="building-floor">
+
+            <span>{{floor.source[0].Floor}}</span>
+
+            <div ng-repeat="unitBlock in floor">
+                <table class="floor-table" ng-repeat="floor in queryunits | reverse">
+                    <tr>
+                        <th>Floor</th>
+                        <th>Room</th>
+                        <th>Type</th>
+                        <th>Size (sq.m)</th>
+                        <th>Foreign Price</th>
+                        <th>Thai Price</th>
+                    </tr>
+                    <tr ng-repeat="unit in unitBlock>
+                        <td>{{unit.UnitNumber}}</td>
+                        <td>{{unit.Type.Name}}</td>
+                        <td>33.27</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

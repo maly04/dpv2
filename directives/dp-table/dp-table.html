@@ -1,0 +1,33 @@
+﻿<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td ng-repeat="header in headers">{{header}}</td>
+                <td>action</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td ng-show="!model.length">{{"text_table_noresult" | translate}}</td>
+            </tr>
+            <tr ng-repeat="rowData in model track by $index">
+
+                <td ng-repeat="cellData in rowData">{{cellData}}</td>
+                <td>
+                    <a href="#">
+                        <i class="fa fa-file-text"></i>
+                        {{"text_view_button" | translate}}
+                    </a>
+                    <a ng-if="edit_state" href="#" ng-click="goto(edit_state,{id:rowData.ID})">
+                        <i class="fa fa-edit"></i>
+                        {{"text_edit_button" | translate}}
+                    </a>
+                    <a href="#" ng-click="delete(rowData.ID)">
+                        <i class="fa fa-trash"></i>
+                        {{"text_delete_button" | translate}}
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

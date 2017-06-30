@@ -1,0 +1,33 @@
+﻿<div class="media-bank">
+    <h2 class="page-title">Projects</h2>
+    <div class="widget">
+        <div class="row">
+
+            <div ng-repeat="building in buildings" ui-sref="app.marketingmaterial.detail({buildingId:building.ID})" class="gallery_product col-lg-1 col-md-2 col-sm-2 col-xs-6 text-center filter hdpe">
+                <img src="/directPortal/modules/salesapp/assets/images/resources/{{building.ID}}/logo/logo.svg" class="img-responsive">
+                {{building.Name}}
+            </div>
+           
+        </div>
+    </div>
+    
+    <div class="widget">
+        <h4>Project Videos</h4>
+        <div class="row">
+
+            <div ng-repeat="building in buildings" class="gallery_product  col-lg-2 col-md-1 col-sm-2 col-xs-12 filter hdpe">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <video controls class="embed-responsive-item">
+                        <source src="/directPortal/modules/marketingmaterial/videos/{{building.ID}}.mp4" type="video/mp4">
+                    </video>
+                    <img src="/directPortal/modules/marketingmaterial/images/materials/{{building.ID}}/{{postTypes[0]}}_{{building.ID}}_{{post.ID}}.jpg" class="img-responsive">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+

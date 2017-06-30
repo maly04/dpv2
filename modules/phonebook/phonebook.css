@@ -1,0 +1,256 @@
+﻿.personName, .personDob, input[type=text], .subject {
+    /*color: #222;*/
+}
+
+.listPerson li {
+    border: 1px solid rgba(0,0,0,0);
+
+}
+.c-search {
+    margin-top: 10px;
+    /*float: right;*/
+}
+.custom-btn-other-option {
+    left:205px !important;
+}
+.btn-other-option {
+    position: relative;
+    top: -28px;
+    left: 190px;
+    width: 24px;
+    height: 20px;
+}
+.setActive {
+   background: #B504AF !important
+}
+.custom-text-box {
+    height:25px;
+}
+.set-margin {
+    margin-bottom: -18px;
+}
+.nopadding {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+.nopaddingright {
+    padding-right:0px !important;
+}
+.nopaddingleft {
+    padding-left:0px !important;
+}
+#myDiagramDiv {
+    /*height:348px !important;*/
+}
+.form-inline .form-control {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+}
+.form-inline .form-group {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+.filter-input {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0;
+    position: relative;
+}
+.pull-left {
+    float: left !important;
+    position: relative;
+    top: -5px;
+    right:4px;
+}
+.custom-pull-left {
+    clear:both;
+    width:100%;
+    right:1px;
+}
+.custom-pull-left .form-inline .form-group {
+    display:block;
+}
+.custom-pull-left .form-inline .form-control {
+    width:100%;
+}
+.textarea-style {
+        width: 100%;
+        margin-top: 10px;
+    }
+.btn-small {
+    margin-right: 4px;
+}
+.subject {
+    width:100%;
+    height:25px;
+}
+.filter-input input {
+    padding: 5px 5px;
+    height: 25px;
+    margin: 5px 10px 5px 0;
+    width:100%;
+}
+.filter-input .btn-search {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+}
+.textarea-reset {
+    position: absolute;
+    top: 7px;
+    right: 19px;
+}
+.textarea-style {
+    width:100%;
+}
+.custom-textarea-reset {
+    right: 4px;
+}
+.messageType {
+    width:70px;
+    position:relative;
+    top:5px;
+}
+.btn-search {
+    font-size: 8px;
+    padding: 0px 5px;
+    margin: 0;
+}
+
+
+.personSearch {
+    margin-left: -15px;
+}
+.personTextSearch {
+    height: 30px;
+    width: 300px;
+}
+.subject {
+    /*background:#fff !important;*/
+    margin-bottom:0px;
+}
+.btnSendMail {
+    margin-bottom:0px;
+}
+.btn-mail {
+
+}
+.list-group-item {
+    background:none;
+    color:#fff;
+}
+.setImgStyle {
+    border:2px solid;
+}
+
+@media(max-width: 767px) {
+    .listPerson {
+        columns: unset;
+        -moz-columns: unset;
+    }
+    .c-search {
+        float: none;
+        width: 100%;
+    }
+
+    .c-search input[type="text"] {
+        width: 70%;
+        margin: 10px 5px 0px 0px;
+    }
+}
+
+@media(max-width: 979px) {
+    .listPerson {
+        columns: unset;
+        -moz-columns: unset;
+    }
+    .listPerson li {
+        word-wrap: break-word;
+    }
+}
+
+.listPerson li div {
+    margin: 0;
+    padding: 0 3px;
+}
+
+@media (max-width: 479px) {
+}
+.select2-container-multi .select2-choices {
+    min-height:20px !important;
+}
+.select2-input {
+    width:217px !important;
+    height:20px !important;
+}
+.select2-container-multi .select2-choices {
+    background: rgba(0,0,0, 0.2) !important;
+    border-radius: 4px !important;
+    border: 1px solid #323232 !important;
+}
+.set-margin-top {
+    margin-top:10px;
+}
+.showImg {
+    background:url('person data.png');
+    width:296px;
+    height:308px;
+    background-repeat:no-repeat;
+}
+.custom-text-box-mini {
+    background: rgba(0,0,0, 0.2) !important;
+    border-radius: 4px !important;
+    border: 1px solid #323232 !important;
+    width: 100%;
+    padding: 0px 5px;
+}
+.svg {
+    top: 4px;
+    position: absolute;
+    right: 5px;
+}
+.custom-padding-left {
+    padding-left:3px;
+}
+.custom-svg {
+    top:3px !important;
+}
+.icon-svg {
+    top: 3px;
+    position: absolute;
+    right: 5px;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    background-color: #424945;
+    border: 0px;
+    color: #FFF;
+}
+.nav-tabs > li a:hover {
+    background-color: #424945;
+    color: #FFF;
+}
+.dp-fix-height, #map {
+    height: 137px;
+}
+.dp-fix-height {
+    background-color: #424945;
+}
+.dp-custom-widget-margin {
+    margin-top: 1px;
+    padding-bottom: 4px;
+}
+.dp-custom-margin {
+    margin-top:9px;
+}
+.dp-tab1 {
+    background-image: url('../phonebook/picture13308737556884.jpg');
+    width: 203px;
+    height: 136px;
+    /*border: 1px solid #000;*/
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    margin-top:24px;
+}

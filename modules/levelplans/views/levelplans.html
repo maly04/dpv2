@@ -1,0 +1,38 @@
+﻿<style>
+    .projects {
+        margin-bottom: 20px;
+        width: 50%;
+        margin: 0px;
+        padding: 10px;
+        display: inline-block;
+        float: none;
+        box-sizing: border-box;
+    }
+    .btn-floor {
+        margin: 20px;
+    }
+</style>
+<h2 class="page-title">Level Plans</h2>
+<div class="row">
+    <div class="widget col-md-12">
+        <div class="col-md-2">
+            <div class="row">
+                <a class="projects" ng-repeat="building in buildings" class="btn btn-default" ng-click="selectBuilding(building)">
+                    <img src="/directPortal/modules/salesapp/assets/images/resources/{{building.ID}}/logo/logo.svg" class="img-responsive" style="width: 150px;">
+                    {{building.Name}}
+                </a>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="row">
+                <button ng-repeat="n in [] | range:selectedBuilding.Floors" ng-click="selectFloor(n)" class="btn btn-default btn-primary btn-floor">Floor {{n}}</button>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <img src="directPortal/modules/salesapp/assets/images/resources/{{selectedBuilding.ID}}/floorplan/{{selectedFloor}}.jpg" class="img-responsive" />
+        </div>
+    </div>
+</div>
+
+        
+

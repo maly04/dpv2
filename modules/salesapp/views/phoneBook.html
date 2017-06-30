@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="container-fluid">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h2>Phonebook</h2>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="container-fluid">
+        <input ng-model="searchText" type="text" class="personTextSearch" id="contact-list-search" placeholder="Search">
+
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="person in persons | filter:searchText">
+            <div class="card single-contact">
+                <div class="card-body">
+                    <div class="pull-left">
+                        <img src="/directPortal/modules/phonebook/images/{{person.MigrationID}}.jpg" alt="{{person.Name}}" class="img-responsive img-circle" />
+                    </div>
+                    <div class="name-container">
+                        <h6 class="contact-name text-center">{{person.Name}}</h6>
+                        <h6 class="title">{{person.JobTitle}}</h6>
+                    </div>
+                    <div class="row pull-right">
+                        <a href="tel:{{person.TelephoneNumber}}" class="btn btn-success"><i class="fa fa-phone"></i></a>
+                        <a href="mailto:{{person.EmailAddress}}" class="btn btn-warning"><i class="fa fa-send"></i></a>
+                        {{person.EmailAddress}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .name-container {
+        display: inline-block;
+    }
+    .name-container h6 {
+        margin-left: 10px;
+    }
+    .name-container .title {
+        font-size: xx-small;
+        font-style: italic;
+    }
+    .single-contact {
+        margin-bottom: 20px;
+    }
+</style>

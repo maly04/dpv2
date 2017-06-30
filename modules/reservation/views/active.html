@@ -1,0 +1,28 @@
+﻿<div class="view-active-reservation">
+
+    <div class="row">
+        <div class="col-lg-3 widget reservation-box" ng-repeat="reservationStatus in groupedReservationsByType">
+            <h5>{{reservationStatus.source[0].TypeID}} Reservation(s) (Total: {{groupedReservationsByType.length}}) <span class="more-info"><i class="fa fa-info-circle"></i></span></h5>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>hrs</td>
+                        <td>building</td>
+                        <td>unit</td>
+                        <td>seller</td>
+                        <td>agency</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="reservation in reservationStatus.source">
+                        <td><a ui-sref="app.reservation.view({id:reservationStatus.ID})">{{reservation.Name}}</a></td>
+                        <td>{{reservation.Unit.Building.Name}}</td>
+                        <td>{{reservation.Unit.UnitNumber}}</td>
+                        <td>{{reservation.SalesPerson.Name}}</td>
+                        <td>{{reservation.Agency.Name}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

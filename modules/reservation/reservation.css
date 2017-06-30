@@ -1,0 +1,5 @@
+﻿#errorMsgOwnerShip, #errorMsgSalePerson, #errorSaleCommission {
+    color: #8a1f11;
+    text-align: center;
+    display: inline-block;
+}

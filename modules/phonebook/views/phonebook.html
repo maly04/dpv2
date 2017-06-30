@@ -1,0 +1,356 @@
+﻿<h1 class="page-title visible-lg">{{"TEXT_MODULE_NAVIGATION_PHONEBOOK" | translate }}</h1>
+<div class="row">
+    <div class="widget">
+        <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10 nopadding">           
+            <h3 class="page-title visible-xs visible-sm visible-md">{{"TEXT_MODULE_NAVIGATION_PHONEBOOK" | translate }}</h3>
+          
+            <div class="clearfix"></div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding">
+                <div class="widget">
+                    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 nopadding">
+                        <div class="custom-btn-group">
+                            <button class="btn  btn-default btn-small  btn-unit-type {{setColor(personType.Type)}}" ng-repeat="personType in personsType" >{{personType.Type}}</button>                           
+                        </div>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 nopaddingright">
+                        <!--<div class="input-group c-search">
+                            <input ng-model="searchText" type="text" class="personTextSearch" id="contact-list-search" placeholder="Search">
+                            <span class="personSearch">
+                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search text-muted"></span></button>
+                            </span>
+                        </div>-->
+                            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                                <div class="filter-input pull-left">
+                                    <form class="form-inline">
+                                        <div class="form-group"  style="float:right;">
+                                            <input type="text" class="form-control" placeholder="Search">
+                                            <button type="submit" class="btn btn-small btn-search"><i class="fa fa-search"></i></button>
+                                        </div>
+                                    </form>
+                                </div>
+                           </div>
+                           <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 nopaddingright">
+                               <div class="custom-btn-group" style="float:right;">
+                                   <button class="btn  btn-default btn-small  btn-unit-type {{setColor(person.Type)}}" ng-repeat="person in topPersons">{{person.Type}}</button>
+                                   <!--<button class="btn  btn-default btn-small  btn-unit-type">Staff</button>-->
+                               </div>
+                           </div>
+                        </div>
+                    <div class="clearfix"></div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding" style="height:500px;">
+                        <div id="myDiagramDiv" style="background-color: #696969; border: solid 1px black; height: 500px"></div>
+                        <div>
+                            <div id="myInspector">
+
+                            </div>
+                        </div>
+                        <div style="visibility:hidden;">
+                            <div>
+                                <button id="SaveButton" onclick="save()">Save</button>
+                                <button onclick="load()">Load</button>
+                                Diagram Model saved in JSON format:
+                            </div>
+                            <textarea id="mySavedModel" style="width:100%;height:250px">{ "class": "go.TreeModel",
+                                      "nodeDataArray": [
+                                    {"key":1, "name":"Stella Payne xxx", "title":"CEO"},
+                                    {"key":2, "name":"Luke Warm", "title":"VP Marketing/Sales", "parent":1},
+                                    {"key":3, "name":"Meg Meehan Hoffa", "title":"Sales", "parent":2},
+                                    {"key":4, "name":"Peggy Flaming", "title":"VP Engineering", "parent":1},
+                                    {"key":5, "name":"Saul Wellingood", "title":"Manufacturing", "parent":4},
+                                    {"key":6, "name":"Al Ligori", "title":"Marketing", "parent":2},
+                                    {"key":7, "name":"Dot Stubadd", "title":"Sales Rep", "parent":3},
+                                    {"key":8, "name":"Les Ismore", "title":"Project Mgr", "parent":5},
+                                    {"key":9, "name":"April Lynn Parris", "title":"Events Mgr", "parent":6},
+                                    {"key":10, "name":"Xavier Breath", "title":"Engineering", "parent":4},
+                                    {"key":11, "name":"Anita Hammer", "title":"Process", "parent":5},
+                                    {"key":12, "name":"Billy Aiken", "title":"Software", "parent":10},
+                                    {"key":13, "name":"Stan Wellback", "title":"Testing", "parent":10},
+                                    {"key":14, "name":"Marge Innovera", "title":"Hardware", "parent":10},
+                                    {"key":15, "name":"Evan Elpus", "title":"Quality", "parent":5},
+                                    {"key":16, "name":"Lotta B. Essen", "title":"Sales Rep", "parent":3}
+                                     ]
+                                    }
+                                    </textarea>
+                           </div>
+                    </div> <!--end diagrambox-->
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+            <div class="clearfix"></div>
+            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 nopaddingleft">
+                <div class="widget">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding set-margin">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 nopadding">
+                            <div class="form-group">
+                                <div class="col-md-12 nopaddingleft">
+                                    <div class="filter-input pull-left custom-pull-left">
+                                        <form class="form-inline">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="To">
+                                                <button type="submit" class="btn btn-small btn-search">x</button>
+                                                <a class="btn btn-small btn-other-option">^</a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 nopadding">
+                            <div class="form-group">
+                                <div class="col-md-12 nopaddingleft">
+                                    <div class="filter-input pull-left custom-pull-left">
+                                        <form class="form-inline">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="CC">
+                                                <button type="submit" class="btn btn-small btn-search">x</button>
+                                                <a class="btn btn-small btn-other-option">^</a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 nopadding">
+                            <div class="form-group">
+                                <div class="col-md-12 nopadding">
+                                    <div class="filter-input pull-left custom-pull-left">
+                                        <form class="form-inline">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="BCC">
+                                                <button type="submit" class="btn btn-small btn-search">x</button>
+                                                <a class="btn btn-small btn-other-option custom-btn-other-option">^</a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                   
+                    <div class="clearfix"></div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 nopadding">
+                        <div class="form-group">
+                            <div class="col-md-12 nopadding">
+                                <div class="custom-btn-group">
+                                    <button class="btn  btn-default btn-small  btn-unit-type setActive">Email</button>
+                                    <button class="btn  btn-default btn-small  btn-unit-type">Sms</button>
+                                    <button class="btn  btn-default btn-small  btn-unit-type">Skype</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 nopadding">
+                        <div class="form-group">
+                            <div class="col-md-12 nopadding">
+                                <input type="text" ng-model="subject" class="subject form-control" placeholder="Subject"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding">
+                        <div class="form-group">
+                            <div class="clearfix"></div>
+                            <div class="col-md-12 nopadding">
+                                <textarea ng-model="body" class="textarea-style" rows="10" placeholder="Message"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding">
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 nopadding">
+                            <div class="custom-btn-group" style="margin-top:10px;">
+                                <button class="btn  btn-default btn-small  btn-unit-type">Save</button>
+                                <button class="btn  btn-default btn-small  btn-unit-type">Load</button>
+                            </div>
+                        </div>
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 nopadding">
+                            <div class="custom-btn-group" style="margin-top:10px;">
+                                <button class="btn  btn-default btn-small  btn-unit-type">Project A</button>
+                                <button class="btn  btn-default btn-small  btn-unit-type">Sales Team</button>
+                                <button class="btn  btn-default btn-small  btn-unit-type">Marketing Alert</button>
+                                <button class="btn  btn-default btn-small  btn-unit-type">Event</button>
+                                <button class="btn  btn-default btn-small  btn-unit-type">Account info</button>
+                                <button class="btn  btn-default btn-small  btn-unit-type">Update Request</button>
+                            </div>
+                        </div>
+                        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 nopadding">
+                            <button type="button" ng-click="mailto()" class="btn  btn-default btn-small  btn-unit-type" style="float:right; margin-top:10px;">Send</button>
+                        </div>
+                     </div>
+                </div>
+            </div>
+            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 nopadding">
+                <div class="widget">
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 nopadding">
+                        <div class="custom-btn-group">
+                            <button class="btn  btn-default btn-small  btn-unit-type">Save</button>
+                            <button class="btn  btn-default btn-small  btn-unit-type">Load</button>
+                        </div>
+                    </div>
+                    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 nopadding">
+                        <div class="custom-btn-group">
+                            <button class="btn  btn-default btn-small  btn-unit-type">Sales Team</button>
+                            <button class="btn  btn-default btn-small  btn-unit-type">Marketing Team</button>
+                            <button class="btn  btn-default btn-small  btn-unit-type">General Group</button>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding">
+                        <textarea ng-model="body" class="textarea-style" rows="10" placeholder="" style="height:292px;"></textarea>
+                    </div>
+               </div>
+            </div>
+         </div>
+        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 nopaddingright">
+            <div class="widget">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding">
+                    <input type="text" value="Jim, Chi Young" class="custom-text-box-mini" />
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding">
+                    <input type="text" value="79% (19/76)" class="custom-text-box-mini"/>
+                    <div class="svg">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                             width="124px" height="14px" viewBox="0 0 124 14" enable-background="new 0 0 124 14" xml:space="preserve">
+                            <rect fill="#FF0000" width="28" height="14" />
+                            <rect x="28" fill="#39B54A" width="96" height="14" />
+                        </svg>
+                    </div>                   
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding">
+                    <input type="text" value="Sale person, Chinese market" class="custom-text-box-mini" />
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding">
+                    <input type="text" value="All Projects" class="custom-text-box-mini" />
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding">
+                    <!--<input type="text" value="+120 days" class="custom-text-box-mini" />-->
+                    <input type="text" value="+73 days" class="custom-text-box-mini" />
+                    <div class="svg">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                             width="124px" height="14px" viewBox="0 0 124 14" enable-background="new 0 0 124 14" xml:space="preserve">
+                        <rect fill="#39B54A" width="28" height="14" />
+                        <rect x="28" fill="#FF0000" width="96" height="14" />
+
+                        </svg>
+                    </div>    
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding">
+                    <input type="text" value="+66(8) 56500989 (mob. work)" class="custom-text-box-mini" />
+                    <div class="icon-svg">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                             width="68.1px" height="17px" viewBox="0 0 68.1 17" enable-background="new 0 0 68.1 17" xml:space="preserve">                       
+                             <path fill="#29ABE2" stroke="#333333" stroke-miterlimit="10" d="M64.6,16.5h-10c-1.7,0-3-1.3-3-3v-10c0-1.6,1.3-3,3-3h10
+	                        c1.7,0,3,1.4,3,3v10C67.6,15.1,66.3,16.5,64.6,16.5z" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 nopadding">
+                    <input type="text" value="active" class="custom-text-box-mini" />
+                    <div class="svg custom-svg">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                             width="68.1px" height="17px" viewBox="0 0 68.1 17" enable-background="new 0 0 68.1 17" xml:space="preserve">
+                        <path fill="#39B54A" stroke="#333333" stroke-miterlimit="10" d="M43.6,16.5H3.5c-1.6,0-3-1.3-3-3v-10c0-1.6,1.4-3,3-3h40.1
+	                        c1.6,0,3,1.4,3,3v10C46.6,15.1,45.3,16.5,43.6,16.5z" />
+                        <path fill="#29ABE2" stroke="#333333" stroke-miterlimit="10" d="M64.6,16.5h-10c-1.7,0-3-1.3-3-3v-10c0-1.6,1.3-3,3-3h10
+	                        c1.7,0,3,1.4,3,3v10C67.6,15.1,66.3,16.5,64.6,16.5z" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 nopaddingright custom-padding-left">
+                    <input type="text" value="24 Mar 15" class="custom-text-box-mini" />
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 nopaddingright  custom-padding-left">
+                    <input type="text" value="25 Mar 16" class="custom-text-box-mini" />
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 nopadding">
+                    <input type="text" value="1%" class="custom-text-box-mini" />
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 nopaddingright custom-padding-left">
+                    <input type="text" value="0.50%" class="custom-text-box-mini" />
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 nopaddingright custom-padding-left">
+                    <input type="text" value="n/a" class="custom-text-box-mini" />
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 nopadding">
+                    <input type="text" value="+1-202-555-01-02" class="custom-text-box-mini" />
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 nopaddingright custom-padding-left">
+                    <input type="text" value="+66(8) 56500989 " class="custom-text-box-mini" />
+                </div>
+              </div>
+             <div class="widget">
+            <!--Tab block-->              
+            <div class="widget-content widget-tab">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab-1" data-toggle="tab">Co. Logo</a></li>
+                    <li><a href="#tab-2" data-toggle="tab">n/a</a></li>
+                    <li><a href="#tab-3" data-toggle="tab">n/a</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="tab-1" class="tab-pane fade active in">
+                        <div class="dp-tab1">
+                          
+                        </div>                           
+                    </div>
+                    <div id="tab-2" class="tab-pane fade">
+                        Tab 2 content goes here.
+                    </div>
+                    <div id="tab-3" class="tab-pane fade">
+                        Tab 3 content goes here.
+                    </div>
+                </div>
+                <!--end contain tab-->
+            </div>
+            </div>
+            <!--start next block-->
+            <div class="clearfix"></div>
+            <div class="widget dp-custom-widget-margin">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding">
+                    <input type="text" value="Young Shenzhen Co., Ltd." class="custom-text-box-mini" />
+                    <div class="icon-svg">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                width="68.1px" height="17px" viewBox="0 0 68.1 17" enable-background="new 0 0 68.1 17" xml:space="preserve">                       
+                        <path fill="#29ABE2" stroke="#333333" stroke-miterlimit="10" d="M64.6,16.5h-10c-1.7,0-3-1.3-3-3v-10c0-1.6,1.3-3,3-3h10
+	                    c1.7,0,3,1.4,3,3v10C67.6,15.1,66.3,16.5,64.6,16.5z" />
+
+                    </svg>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="dp-fix-height">
+                    <div id="map" class="map"><div id="popup"></div></div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding dp-custom-margin">
+                    <input type="text" value="1881 Baoan Nan Road," class="custom-text-box-mini" />
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding">
+                    <input type="text" value="Luohu District" class="custom-text-box-mini" />
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding">
+                    <input type="text" value="Shenzhen, Guangdong," class="custom-text-box-mini" />
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding">
+                    <input type="text" value="China, 518001, " class="custom-text-box-mini" />
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding">
+                    <input type="text" value="Tel: +86 755 8266 1234" class="custom-text-box-mini" />
+                </div>
+
+
+            </div>               
+           
+        <!--</div>-->
+    </div>
+</div>

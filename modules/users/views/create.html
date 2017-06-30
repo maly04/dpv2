@@ -1,0 +1,34 @@
+﻿<h1 class="page-title">Create User</h1>
+
+<div class="widget">
+    <div class="row">
+        <div class="col-lg-3 col-xs-12">
+            <div ng-if="hasErrors" class="alert alert-error">
+                <strong>Error</strong>
+                <ul>
+                    <li ng-repeat="error in errors">{{error.Description}}</li>
+                </ul>
+            </div>
+            <form>
+                <div class="form-group-sm">
+                    <label>Username</label>
+                    <input type="text" class="form-control" placeholder="Username" ng-model="user.username"><br>
+                </div>
+                <div class="form-group-sm">
+                    <label>Password</label>
+                    <input type="password" class="form-control" placeholder="Password" ng-model="user.password"><br>
+                </div>
+                <div class="form-group-sm">
+                    <label>Role</label>
+                    <select ng-model="user.type" class="form-control">
+                        <option ng-repeat="personType in personTypes" value="{{personType.ID}}">{{personType.Name}}</option>
+                    </select>
+                </div>
+                <br />
+                <button type="submit" class="btn btn-success" ng-click="createUser()"><i class="fa fa-user-plus"></i> Create User</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+

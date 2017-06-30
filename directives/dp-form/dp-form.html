@@ -1,0 +1,30 @@
+﻿<form class="form-horizontal ng-pristine ng-valid">
+    <flash-message></flash-message>  
+    <div ng-repeat="field in formFields" class="form-group">
+        <label class="col-md-1 control-label">{{field.Name}}</label>
+        <div class="col-md-9">
+            <div ng-switch on="field.InputType">
+                <div ng-switch-when="text">
+                    <input ng-model="model[field.Name]" type="text" value="{{model[field.Name]}}" class="form-control">
+                </div>
+                <div ng-switch-when="date">
+                    <input ng-model="model[field.Name]" type="date" value="{{model[field.Name] | date | date:'yyyy-MM-dd'}}" class="form-control">
+                </div>
+                <div ng-switch-when="select">
+                    <select ng-model="model[field.Name]" class="form-control selectbox" >
+                        <option ng-repeat="value in field.values" value="{{value.ID}}" ng-selected="selectedId == value.ID">{{value.Name}}</option>                       
+                    </select>
+                </div>
+                <div ng-switch-default>
+                    <input ng-model="model[field.Name]" type="text" class="form-control" value="" placeholder="{{field.Name}}">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-1 control-label"></label>
+        <div class="col-md-9">
+            <button type="submit" ng-click="submit()" class="btn btn-sm btn-success">{{'TEXT_CREATE' | translate}}</button>
+        </div>
+    </div>
+</form>
